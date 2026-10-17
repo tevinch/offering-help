@@ -1,0 +1,30 @@
+{
+  "ops": [
+    {"insert": "Chapter 1: Café"},
+    {"insert": "\n", "attributes": {"header": 1}},
+    {"insert": "A "},
+    {"insert": "bold", "attributes": {"bold": true}},
+    {"insert": ", "},
+    {"insert": "gentle", "attributes": {"italic": true}},
+    {"insert": " and "},
+    {"insert": "both", "attributes": {"bold": true, "italic": true, "underline": true}},
+    {"insert": " word. "},
+    {"insert": "Guide", "attributes": {"link": "https://quilljs.com/docs/delta"}},
+    {"insert": ".\nLiteral *stars*, [brackets], # tags, <html> & Unicode 中文.\n\n"},
+    {"insert": "First task"},
+    {"insert": "\n", "attributes": {"list": "bullet"}},
+    {"insert": "Read the draft"},
+    {"insert": "\n", "attributes": {"list": "ordered", "indent": 1}},
+    {"insert": "Check the ending"},
+    {"insert": "\n", "attributes": {"list": "ordered", "indent": 1}},
+    {"insert": "Keep the note"},
+    {"insert": "\n", "attributes": {"list": "bullet", "indent": 1}},
+    {"insert": "Second task"},
+    {"insert": "\n", "attributes": {"list": "bullet"}},
+    {"insert": "Publish the chapter"},
+    {"insert": "\n", "attributes": {"list": "ordered"}},
+    {"insert": "Save a copy"},
+    {"insert": "\n", "attributes": {"list": "ordered"}},
+    {"insert": "Done.\n"}
+  ]
+}
