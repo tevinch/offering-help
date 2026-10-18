@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap forms with Choices</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js@11.2.4/public/assets/styles/choices.min.css">
+  </head>
+  <body>
+    <main class="container py-4">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <h1 class="h3 mb-3">Bootstrap forms with Choices</h1>
+          <p>Ordinary fields keep Bootstrap styling. The two searchable selects use Choices.</p>
+          <form id="example-form">
+            <fieldset class="mb-4">
+              <legend class="h5">Ordinary Bootstrap fields</legend>
+              <div class="mb-3">
+                <label id="ordinary-name-label" for="ordinary-name" class="form-label">Project name</label>
+                <input id="ordinary-name" name="project" class="form-control" value="Community guide">
+              </div>
+              <div class="mb-3">
+                <label for="ordinary-priority" class="form-label">Priority</label>
+                <select id="ordinary-priority" name="priority" class="form-select">
+                  <option value="normal" selected>Normal</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="ordinary-notes" class="form-label">Notes</label>
+                <textarea id="ordinary-notes" name="notes" class="form-control" rows="3">Keep the existing form content.</textarea>
+              </div>
+            </fieldset>
+            <fieldset class="mb-4">
+              <legend class="h5">Searchable selects</legend>
+              <div class="mb-3">
+                <label id="country-label" for="country" class="form-label">Country</label>
+                <select id="country" name="country" class="form-select">
+                  <option value="" selected>Choose a country</option>
+                  <option value="ca">Canada</option>
+                  <option value="de">Germany</option>
+                  <option value="jp">Japan</option>
+                  <option value="nz">New Zealand</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label id="topics-label" for="topics" class="form-label">Topics</label>
+                <select id="topics" name="topics" class="form-select" multiple>
+                  <option value="docs" selected>Documentation</option>
+                  <option value="accessibility">Accessibility</option>
+                  <option value="testing">Testing</option>
+                  <option value="localization">Localization</option>
+                </select>
+                <p class="form-text">Search to add a topic. Use its remove button to deselect it.</p>
+              </div>
+              <p id="selection-status" class="small" role="status" aria-live="polite"></p>
+            </fieldset>
+            <button class="btn btn-primary" type="submit">Show form data</button>
+          </form>
+          <section class="mt-4" aria-labelledby="result-heading">
+            <h2 id="result-heading" class="h5">Submitted values</h2>
+            <pre id="form-result" class="bg-body-tertiary border rounded p-3" aria-live="polite">Submit the form to see its values.</pre>
+            <p class="small text-body-secondary">This example displays the data locally.</p>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js@11.2.4/public/assets/scripts/choices.min.js"></script>
+    <script>
+      new Choices('#country', {
+        allowHTML: false,
+        shouldSort: false,
+        labelId: 'country-label',
+        searchPlaceholderValue: 'Search countries',
+      });
+      new Choices('#topics', {
+        allowHTML: false,
+        shouldSort: false,
+        labelId: 'topics-label',
+        removeItemButton: true,
+      });
+
+      const form = document.querySelector('#example-form');
+      const country = document.querySelector('#country');
+      const topics = document.querySelector('#topics');
+      const selectedLabels = (select) => Array.from(select.selectedOptions, option => option.textContent);
+      function showSelection() {
+        document.querySelector('#selection-status').textContent =
+          `Country: ${selectedLabels(country).join(', ')}. Topics: ${selectedLabels(topics).join(', ') || 'none'}.`;
+      }
+      country.addEventListener('change', showSelection);
+      topics.addEventListener('change', showSelection);
+      showSelection();
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const data = new FormData(form);
+        document.querySelector('#form-result').textContent = JSON.stringify({
+          project: data.get('project'),
+          priority: data.get('priority'),
+          notes: data.get('notes'),
+          country: data.get('country'),
+          topics: data.getAll('topics'),
+        }, null, 2);
+      });
+    </script>
+  </body>
+</html>
