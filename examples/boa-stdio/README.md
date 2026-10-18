@@ -39,7 +39,7 @@ print(result.stderr.decode(), end="")
 PY
 ```
 
-The fixed [`demo.js`](demo.js) reads a 4-byte little-endian length, checks a **64 KiB payload limit before allocating**, accumulates the payload, computes a checksum in JavaScript, and echoes the original header and payload. Empty frames are valid. Multiple frames share one process. EOF between frames succeeds; an incomplete header, incomplete payload, or oversized frame fails with a nonzero exit status. Earlier complete frames may already have been emitted when a later frame fails.
+The fixed [`demo.js`](demo.js) reads a 4-byte little-endian length, checks a **deliberately small 64 KiB local demo cap before allocating**, accumulates the payload, computes a checksum in JavaScript, and echoes the original header and payload. This cap belongs to the demo; the `std.read` and `std.write` bindings impose no 64 KiB payload cap. Empty frames are valid. Multiple frames share one process. EOF between frames succeeds; an incomplete header, incomplete payload, or oversized frame fails with a nonzero exit status. Earlier complete frames may already have been emitted when a later frame fails.
 
 The checksum is a diagnostic sum of byte values, not an integrity or security mechanism. Stdout contains only binary frames; diagnostics go to stderr.
 
@@ -58,6 +58,21 @@ Read and write reject missing arguments, ordinary objects, other typed-array kin
 **Write-error contract:** unlike the earlier version that returned `0` on a write failure, this example throws. Some bytes may already have reached stdout before a write or flush fails. Catch the error to report/terminate the message stream; do not retry the entire frame automatically, since that can duplicate an already-written prefix. A flush failure also does not establish that nothing was written.
 
 This is a bounded byte-I/O example to adapt. It does not implement a JSON message layer, a browser extension, async Promise/job handling, or the original poster's unavailable `__index.js`. Only native execution is checked; WASI is unverified.
+
+## Chrome native messaging
+
+[Chrome's native messaging protocol](https://developer.chrome.com/docs/extensions/develop/concepts/native-messaging) has separate per-message limits:
+
+| Direction | Maximum JSON payload |
+| --- | --- |
+| Browser to host | 64 MiB (67,108,864 bytes) |
+| Host to browser | 1 MiB (1,048,576 bytes) |
+
+Measure the serialized JSON's UTF-8 bytes, excluding the four-byte length prefix. That prefix uses the platform's native byte order. The local demo uses raw binary payloads and fixed little-endian framing; adapting it requires the browser's JSON protocol.
+
+Increasing the demo's input cap alone would let its echo exceed the browser's output limit. Check input length before allocating and encoded output length before writing. Array element counts and JavaScript string length do not establish the encoded byte size.
+
+Multiple responses need client-agreed JSON messages and reassembly. A `runtime.connectNative()` port supports multiple messages; `runtime.sendNativeMessage()` uses only the first host response and ignores later ones. Splitting raw bytes or adding output frames cannot transparently preserve an existing client's message contract. Browser integration and these larger boundaries have not been tested by this example.
 
 ## Verification
 
