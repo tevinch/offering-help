@@ -1,0 +1,28 @@
+server:
+  address: 127.0.0.1
+  port: 8080
+
+spring:
+  application:
+    name: gateway-timeouts
+
+spring.cloud.gateway.server.webflux.httpclient:
+  connect-timeout: 1000
+  response-timeout: 1s
+
+spring.cloud.gateway.server.webflux.routes:
+  - id: default
+    uri: ${example.upstream-uri:http://127.0.0.1:9091}
+    predicates:
+      - Path=/default/**
+    filters:
+      - StripPrefix=1
+  - id: extended-response
+    uri: ${example.upstream-uri:http://127.0.0.1:9091}
+    predicates:
+      - Path=/extended/**
+    filters:
+      - StripPrefix=1
+    metadata:
+      connect-timeout: 750
+      response-timeout: 5000
