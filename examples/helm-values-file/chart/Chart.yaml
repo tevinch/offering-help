@@ -1,0 +1,5 @@
+apiVersion: v2
+name: values-file-example
+description: A local chart showing parsed values and their original YAML text.
+type: application
+version: 1.0.0

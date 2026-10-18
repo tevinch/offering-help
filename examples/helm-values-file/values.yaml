@@ -1,0 +1,9 @@
+# Keep this comment, punctuation, and the final newline in the raw string.
+replicaCount: 3
+featureEnabled: true
+service:
+  port: 8087
+message: 'Café, {demo}: "quoted" # literal $value \\ path'
+items:
+  - first
+  - second

@@ -11,4 +11,6 @@ Small, runnable examples for practical development problems.
 
 - [Keep Prettier and ESLint class wrapping in Angular](examples/angular-class-format/): preserve ESLint’s static-class layout while formatting the surrounding Angular template.
 
+- [Pass one Helm values file as both YAML and text](examples/helm-values-file/): retain parsed chart settings and a raw-text value with a local rendering check.
+
 Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).

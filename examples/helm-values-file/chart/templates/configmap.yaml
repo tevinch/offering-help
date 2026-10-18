@@ -1,0 +1,14 @@
+{{- if not .Values.rawValuesContent -}}
+{{- fail "rawValuesContent is required: provide the values file as a string" -}}
+{{- end -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}
+data:
+  rawValuesBase64: {{ .Values.rawValuesContent | b64enc | quote }}
+  replicaCount: {{ .Values.replicaCount | toString | quote }}
+  featureEnabled: {{ .Values.featureEnabled | toString | quote }}
+  servicePort: {{ .Values.service.port | toString | quote }}
+  message: {{ .Values.message | quote }}
+  items: {{ .Values.items | toJson | quote }}
