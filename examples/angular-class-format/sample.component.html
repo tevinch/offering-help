@@ -1,0 +1,15 @@
+<section>
+  <!-- prettier-ignore-attribute class -->
+  <div
+    class="
+      text-black underline
+      hover:font-bold hover:text-blue-700
+      focus:font-bold focus:text-red-700
+    "
+    [attr.aria-label]="title"
+    (click)="select($event)"
+  >
+    <span>{{ title }}</span>
+  </div>
+  <p>{{ description }}</p>
+</section>

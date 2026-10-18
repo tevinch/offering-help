@@ -1,0 +1,23 @@
+{
+  "name": "angular-class-format-example",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test verify.test.mjs",
+    "format": "prettier --write sample.component.html",
+    "lint": "eslint sample.component.html",
+    "fix": "eslint --fix sample.component.html"
+  },
+  "devDependencies": {
+    "eslint": "10.13.0",
+    "eslint-plugin-better-tailwindcss": "4.9.1",
+    "prettier": "3.9.10",
+    "@angular-eslint/template-parser": "22.6.0",
+    "tailwindcss": "4.3.3",
+    "@tailwindcss/node": "4.3.3",
+    "typescript": "7.0.2"
+  }
+}

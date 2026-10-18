@@ -9,4 +9,6 @@ Small, runnable examples for practical development problems.
 - [Read sqlc batch results and Close behavior](examples/sqlc-batch/): map callback indexes to inputs and check actual PostgreSQL rows, rollback and connection reuse.
 - [Configure Gateway connection and response timeouts](examples/gateway-timeouts/): distinguish slow response headers from complete large-body transfers with route overrides.
 
+- [Keep Prettier and ESLint class wrapping in Angular](examples/angular-class-format/): preserve ESLint’s static-class layout while formatting the surrounding Angular template.
+
 Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).
