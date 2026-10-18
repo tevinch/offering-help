@@ -13,4 +13,6 @@ Small, runnable examples for practical development problems.
 
 - [Pass one Helm values file as both YAML and text](examples/helm-values-file/): retain parsed chart settings and a raw-text value with a local rendering check.
 
+- [Check bump.yml version targets before a release](examples/bump-config-check/): validate every configured file, line and version without changing files or running a release.
+
 Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).

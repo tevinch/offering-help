@@ -1,0 +1,2 @@
+Version declarations
+schema=9.9.9 release=1.2.3
