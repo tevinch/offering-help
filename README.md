@@ -17,4 +17,6 @@ Small, runnable examples for practical development problems.
 
 - [Run PyArrow in a clean Python environment](examples/python-isolation/): keep shared packages out of tests without changing the shared installation.
 
+- [Keep paired table rows together with Alpine](examples/alpine-paired-rows/): repeat one row group per record with expandable details and stable state when reordered.
+
 Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).

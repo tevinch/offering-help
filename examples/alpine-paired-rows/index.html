@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paired table rows with Alpine</title>
+  <style>
+    :root { color-scheme: light; font: 16px/1.5 system-ui, sans-serif; color: #172638; background: #f4f7fa; }
+    * { box-sizing: border-box; }
+    [x-cloak] { display: none !important; }
+    body { margin: 0; }
+    main { width: min(100% - 2rem, 52rem); margin: 3rem auto; }
+    h1 { font-size: clamp(1.6rem, 5vw, 2.1rem); line-height: 1.2; margin-bottom: .75rem; }
+    p { max-width: 66ch; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: .75rem; margin: 1.5rem 0 .75rem; }
+    button { font: inherit; cursor: pointer; border: 1px solid #a8b6c5; border-radius: .35rem; padding: .45rem .75rem; background: white; color: inherit; }
+    button:hover { background: #eaf1f8; }
+    button:disabled { cursor: default; opacity: .55; }
+    button:focus-visible, textarea:focus-visible { outline: 3px solid #1460a5; outline-offset: 3px; }
+    table { border-collapse: collapse; width: 100%; table-layout: fixed; background: white; border: 1px solid #c6d1dd; }
+    caption { text-align: left; font-weight: 700; padding: .75rem 0; }
+    th, td { padding: .75rem; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+    thead { background: #e6edf5; }
+    thead th:first-child { width: 54%; }
+    thead th:nth-child(2) { width: 20%; }
+    tbody { border-bottom: 1px solid #c6d1dd; }
+    .toggle { display: flex; align-items: baseline; gap: .6rem; text-align: left; width: 100%; border-color: transparent; font-weight: 650; padding: .25rem; }
+    .toggle span:first-child { flex: 0 0 1ch; }
+    .toggle span:last-child { min-width: 0; }
+    .remove { font-size: .9rem; padding: .35rem .5rem; }
+    .details { background: #f4f8fc; }
+    .details p { margin-top: 0; }
+    label { display: block; font-weight: 600; margin-bottom: .4rem; }
+    textarea { display: block; width: 100%; min-height: 5rem; resize: vertical; border: 1px solid #a8b6c5; border-radius: .3rem; padding: .6rem; font: inherit; color: inherit; }
+    tfoot { font-size: .9rem; color: #40566d; }
+    .count { color: #40566d; }
+    @media (max-width: 420px) { th, td { padding: .6rem .4rem; } main { margin-top: 1.5rem; } }
+  </style>
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('pairedRows', () => ({
+        records: [
+          { id: 'note-1', title: 'Café visit', description: 'A quiet table by the window.', notes: 'Keep the original café notes.' },
+          { id: 'note-2', title: '上海 trip', description: 'Places to revisit on the next trip.', notes: '保留这段原有文字。' },
+        ],
+        nextId: 3,
+        addRecord() {
+          const number = this.nextId++
+          const id = `note-${number}`
+          this.records.push({ id, title: `Record ${number}`, description: 'A new record with its own detail row.', notes: '' })
+          this.$nextTick(() => document.getElementById(`${id}-toggle`).focus())
+        },
+        removeRecord(id) {
+          const index = this.records.findIndex(record => record.id === id)
+          this.records = this.records.filter(record => record.id !== id)
+          const next = this.records[Math.min(index, this.records.length - 1)]
+          this.$nextTick(() => document.getElementById(next ? `${next.id}-toggle` : 'add-record').focus())
+        },
+      }))
+    })
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.4/dist/cdn.min.js"></script>
+</head>
+<body>
+  <main x-data="pairedRows">
+    <h1>Two rows, one record</h1>
+    <p>Each record has a heading row and an expandable detail row. Open a record, edit its notes, then reverse the order: both rows and their state stay together.</p>
+    <div class="toolbar">
+      <button type="button" id="add-record" @click="addRecord()">Add record</button>
+      <button type="button" id="reverse-records" @click="records.reverse()" :disabled="records.length < 2">Reverse order</button>
+    </div>
+    <p class="count" role="status" x-text="`${records.length} records`"></p>
+    <p x-cloak x-show="records.length === 0">No records. Add one to continue.</p>
+    <table>
+      <caption>Record notes</caption>
+      <thead>
+        <tr><th scope="col">Record</th><th scope="col">Details</th><th scope="col">Action</th></tr>
+      </thead>
+      <template x-for="record in records" :key="record.id">
+        <tbody x-data="{ open: false }" :data-record-id="record.id">
+          <tr :id="`${record.id}-header`">
+            <th scope="row">
+              <button type="button" class="toggle" :id="`${record.id}-toggle`" :aria-expanded="open" :aria-controls="`${record.id}-detail`" @click="open = !open">
+                <span aria-hidden="true" x-text="open ? '−' : '+'"></span>
+                <span x-text="record.title"></span>
+              </button>
+            </th>
+            <td x-text="open ? 'Open' : 'Closed'"></td>
+            <td><button type="button" class="remove" :aria-label="`Remove ${record.title}`" @click="removeRecord(record.id)">Remove</button></td>
+          </tr>
+          <tr class="details" x-cloak x-show="open" :id="`${record.id}-detail`" :aria-labelledby="`${record.id}-toggle`">
+            <td colspan="3">
+              <p x-text="record.description"></p>
+              <label :for="`${record.id}-notes`">Notes</label>
+              <textarea :id="`${record.id}-notes`" x-model="record.notes"></textarea>
+            </td>
+          </tr>
+        </tbody>
+      </template>
+      <tfoot><tr><td colspan="3">End of record notes</td></tr></tfoot>
+    </table>
+    <noscript><p>This interactive example needs JavaScript enabled.</p></noscript>
+  </main>
+</body>
+</html>
