@@ -15,4 +15,6 @@ Small, runnable examples for practical development problems.
 
 - [Check bump.yml version targets before a release](examples/bump-config-check/): validate every configured file, line and version without changing files or running a release.
 
+- [Run PyArrow in a clean Python environment](examples/python-isolation/): keep shared packages out of tests without changing the shared installation.
+
 Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).

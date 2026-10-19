@@ -1,0 +1,19 @@
+name: PyArrow isolation check
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: [self-hosted, linux]
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: "3.11"
+      - name: Import PyArrow and check both file formats
+        shell: bash
+        run: bash examples/python-isolation/run.sh
