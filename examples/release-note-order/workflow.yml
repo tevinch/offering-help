@@ -1,0 +1,55 @@
+# Steps to insert after checkout/build, using the job's existing token and permissions.
+# Copy this directory to release-note-order/ in that repository first.
+- name: Generate fresh notes and reverse the change entries
+  if: github.event_name != 'pull_request'
+  shell: bash
+  env:
+    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    RELEASE_TAG: canary
+    # Match the target used by your existing release, not a new comparison range.
+    RELEASE_TARGET: main
+    # Leave empty when the existing action lets GitHub choose the previous tag.
+    PREVIOUS_TAG: ''
+    # Replace with your current body/preamble verbatim, including any build warning.
+    NOTES_PREAMBLE: 'This is a preview build; keep the original warning here.'
+  run: |
+    set -euo pipefail
+    note_dir="$(python3 -c 'import os,tempfile; print(tempfile.mkdtemp(prefix="release-notes-", dir=os.environ["RUNNER_TEMP"]))')"
+    args=(api --method POST "repos/$GITHUB_REPOSITORY/releases/generate-notes"
+          --raw-field "tag_name=$RELEASE_TAG")
+    if [[ -n "$RELEASE_TARGET" ]]; then
+      args+=(--raw-field "target_commitish=$RELEASE_TARGET")
+    fi
+    if [[ -n "$PREVIOUS_TAG" ]]; then
+      args+=(--raw-field "previous_tag_name=$PREVIOUS_TAG")
+    fi
+    gh "${args[@]}" > "$note_dir/generated.json"
+    python3 - "$note_dir/generated.json" "$note_dir/input.md" <<'PY'
+    import json
+    import os
+    from pathlib import Path
+    import sys
+
+    body = json.loads(Path(sys.argv[1]).read_bytes())["body"]
+    if not isinstance(body, str):
+        raise SystemExit("generate-notes response body must be a string")
+    preamble = os.environ["NOTES_PREAMBLE"]
+    text = preamble + "\n\n" + body if preamble else body
+    with Path(sys.argv[2]).open("xb") as output:
+        output.write(text.encode("utf-8"))
+    PY
+    python3 release-note-order/reverse_notes.py "$note_dir/input.md" "$note_dir/ordered.md"
+    printf 'ORDERED_NOTES_PATH=%s\n' "$note_dir/ordered.md" >> "$GITHUB_ENV"
+
+- name: Release with the reordered body
+  if: github.event_name != 'pull_request'
+  uses: softprops/action-gh-release@v3.0.3
+  with:
+    tag_name: canary
+    body_path: ${{ env.ORDERED_NOTES_PATH }}
+    generate_release_notes: false
+    append_body: false
+    # Keep your current name, files, draft, prerelease, overwrite_files and other inputs.
+    # Do not retain a separate body input: its content is now NOTES_PREAMBLE above.
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

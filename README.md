@@ -19,4 +19,6 @@ Small, runnable examples for practical development problems.
 
 - [Keep paired table rows together with Alpine](examples/alpine-paired-rows/): repeat one row group per record with expandable details and stable state when reordered.
 
+- [Reverse generated release-note entries](examples/release-note-order/): put the last supplied change first while preserving the warning, credits and changelog.
+
 Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).
