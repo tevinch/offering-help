@@ -23,4 +23,6 @@ Small, runnable examples for practical development problems.
 
 - [Read JSON configurations with full-line comments](examples/jq-full-line-comments/): keep URLs and quoted slashes while parsing one configuration with jq.
 
+- [Keep XML reports and XSL stylesheets separate](examples/xml-stylesheet/): place the fallback loader inside one XML root and retain the report URL with static hosting.
+
 Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).

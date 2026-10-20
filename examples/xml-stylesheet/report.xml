@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="estilo.xsl"?>
+<ficha>
+  <script xmlns="http://www.w3.org/1999/xhtml">window.xsltUsePolyfillOnlyIfNeeded = true;</script>
+  <script src="vendor/xslt-polyfill.min.js" xmlns="http://www.w3.org/1999/xhtml"></script>
+
+  <studentHeader>
+    <name>Sample learner — Álvaro</name>
+    <account>DEMO-001</account>
+    <dateReport>20/OCT/2026 @ 09:00</dateReport>
+  </studentHeader>
+  <tarea>
+    <numero>01</numero><fechaEnt>05/OCT/2026</fechaEnt><calif>07.00</calif>
+    <comentario>Café &amp; diagrams &lt;review&gt;.</comentario><extemp>0</extemp>
+  </tarea>
+  <tarea>
+    <numero>02</numero><fechaEnt>12/OCT/2026</fechaEnt><calif>09.00</calif>
+    <comentario>Example homework submission.</comentario><extemp>0</extemp>
+  </tarea>
+  <trabajo>
+    <numero>01</numero><fechaEnt>15/OCT/2026</fechaEnt><calif>08.50</calif>
+    <equipo>Example group</equipo><tema1>XML reports</tema1><tema2>Static hosting</tema2>
+    <comentario>合成示例 — no real student data.</comentario>
+  </trabajo>
+  <examen>
+    <numero>1st sample exam</numero><fechaEnt>08/OCT/2026</fechaEnt><calif>06.00</calif>
+    <comentario>Demonstration result.</comentario>
+  </examen>
+  <examen>
+    <numero>2nd sample exam</numero><fechaEnt>19/OCT/2026</fechaEnt><calif>09.00</calif>
+    <comentario>Another demonstration result.</comentario>
+  </examen>
+  <calif><ta>08.00</ta><tr>08.50</tr><ex>07.50</ex><extra>00.00</extra><nota>08.00</nota></calif>
+  <nota>
+    <numero>01</numero><fechaEnt>20/OCT/2026</fechaEnt>
+    <comentario>All names, identifiers and marks on this page are synthetic.</comentario>
+  </nota>
+</ficha>
