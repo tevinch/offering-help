@@ -1,0 +1,18 @@
+version: v1alpha1
+source:
+  uri: openapi.yaml
+  acquisition:
+    mode: local
+    offline: true
+kotlin:
+  packageName: example.catalog
+  coordinates:
+    groupId: example
+    artifactId: catalog-client
+  naming:
+    clientName: CatalogClient
+  targets: [jvm]
+output:
+  sources: build/generated/sdkgen/catalog/sources
+  resources: build/generated/sdkgen/catalog/resources
+  manifest: build/generated/sdkgen/catalog/manifest.json

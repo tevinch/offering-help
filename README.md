@@ -32,3 +32,5 @@ Small, runnable examples for practical development problems.
 - [Put static charts into a PDF report](examples/chart-report/): convert chart SVG to PNG, embed the images, and check the complete report with two sample datasets.
 
 Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).
+
+- [Generate a Kotlin SDK from a local OpenAPI file](examples/sdkgen-config): keep the generator configuration separate, generate the client, and call a local HTTP endpoint.
