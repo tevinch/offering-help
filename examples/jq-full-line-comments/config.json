@@ -1,0 +1,11 @@
+{
+  // The next option is disabled as a complete line.
+  // "obsolete": true,
+  "service": {
+    "endpoint": "https://example.com/a//b",
+    "label": "literal // stays",
+    "quote": "say \"//\""
+  },
+  "enabled": true,
+  "items": [1, null, "中文"]
+}

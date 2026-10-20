@@ -21,4 +21,6 @@ Small, runnable examples for practical development problems.
 
 - [Reverse generated release-note entries](examples/release-note-order/): put the last supplied change first while preserving the warning, credits and changelog.
 
+- [Read JSON configurations with full-line comments](examples/jq-full-line-comments/): keep URLs and quoted slashes while parsing one configuration with jq.
+
 Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).
