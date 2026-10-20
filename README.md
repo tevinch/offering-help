@@ -29,4 +29,6 @@ Small, runnable examples for practical development problems.
 
 - [Find GIMP’s plug-in folder and install Batcher](examples/gimp-plugin-folder): expand the Preferences sidebar, add a personal search folder and check the complete installation layout.
 
+- [Put static charts into a PDF report](examples/chart-report/): convert chart SVG to PNG, embed the images, and check the complete report with two sample datasets.
+
 Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).
