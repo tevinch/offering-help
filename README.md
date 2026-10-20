@@ -25,4 +25,6 @@ Small, runnable examples for practical development problems.
 
 - [Keep XML reports and XSL stylesheets separate](examples/xml-stylesheet/): place the fallback loader inside one XML root and retain the report URL with static hosting.
 
+- [Move a MySQL schema to another server](examples/mysql-schema-restore/): include schema creation in a dump and compare the complete restored sample.
+
 Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).

@@ -1,0 +1,27 @@
+1	Stationery
+2	文具 📚
+1	1	Notebook	12.50	NULL	2026-10-01
+2	2	鉛筆 ✏️	0.75	line one\nline two	2026-10-02
+3	1	Apostrophe ' and backslash \\	0.00		2026-10-03
+1	Stationery	Notebook	12.50
+2	文具 📚	鉛筆 ✏️	0.75
+3	Stationery	Apostrophe ' and backslash \\	0.00
+3
+categories	BASE TABLE
+import_audit	BASE TABLE
+item_summary	VIEW
+items	BASE TABLE
+categories	label	label
+categories	PRIMARY	id
+import_audit	PRIMARY	item_id
+items	fk_item_category	category_id
+items	idx_item_label	label
+items	PRIMARY	id
+categories	label	UNIQUE
+categories	PRIMARY	PRIMARY KEY
+import_audit	PRIMARY	PRIMARY KEY
+items	fk_item_category	FOREIGN KEY
+items	PRIMARY	PRIMARY KEY
+item_count	PROCEDURE
+item_insert_audit	INSERT	AFTER
+future_marker	DISABLED
