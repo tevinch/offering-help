@@ -35,6 +35,8 @@ Practical examples and guides for development problems.
 
 - [Understand Needle title regex and join](examples/needle-title-regex/): compare actual match arrays and copy title settings with clear expected results.
 
+- [Export Tabulator rows as Markdown](examples/tabulator-markdown/): keep native export settings, column order and row ranges while preserving literal cell text.
+
 Each example or guide explains how to use it and what was checked. Original code is available under the [MIT license](LICENSE).
 
 - [Generate a Kotlin SDK from a local OpenAPI file](examples/sdkgen-config): keep the generator configuration separate, generate the client, and call a local HTTP endpoint.

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tabulator Markdown export</title>
+  <link rel="stylesheet" href="./node_modules/tabulator-tables/dist/css/tabulator.min.css">
+  <style>
+    body { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; font: 16px/1.5 system-ui, sans-serif; color: #203046; }
+    h1 { font-size: 1.7rem; }
+    .controls { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin: 1rem 0; }
+    button, select { font: inherit; padding: .4rem .7rem; }
+    #table { min-height: 170px; }
+    #status { min-height: 1.5rem; }
+    pre { overflow: auto; padding: 1rem; background: #f1f5f9; border: 1px solid #d3dce8; }
+    code { font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <h1>Tabulator Markdown export</h1>
+  <p>Select rows, change the filter or column order, then download a Markdown table.
+    Double-click an Item or Notes cell to edit it. The exported values use plain text.</p>
+  <div class="controls">
+    <label>Rows <select id="filter"><option value="all">All items</option><option value="active">Active items</option></select></label>
+    <button id="move">Move Notes before Item</button>
+    <button id="clear">Clear selection</button>
+  </div>
+  <div id="table"></div>
+  <div class="controls">
+    <button data-range="active">Download filtered rows</button>
+    <button data-range="selected">Download selected rows</button>
+    <button data-range="all">Download all rows</button>
+  </div>
+  <p id="status" role="status">Preparing table…</p>
+  <details open><summary>Last downloaded Markdown</summary><pre id="preview">Choose a download above.</pre></details>
+  <p>The hidden Reference column is included deliberately; Scratch is excluded. Count uses a download accessor.
+    Selected exports include selected rows hidden by the filter. See the README for the supported flat-table scope.</p>
+  <script type="module" src="./example.mjs"></script>
+</body>
+</html>

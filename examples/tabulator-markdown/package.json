@@ -1,0 +1,9 @@
+{
+  "name": "tabulator-markdown-example",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test test.mjs" },
+  "dependencies": { "tabulator-tables": "6.7.0" },
+  "devDependencies": { "marked": "18.1.1" }
+}
