@@ -1,6 +1,6 @@
 # Offering Help
 
-Small, runnable examples for practical development problems.
+Practical examples and guides for development problems.
 
 - [Export a saved Quill chapter to Markdown with Python](examples/quill-markdown/): preserve text runs, headings and lists without pairing adjacent Delta operations.
 - [Synchronous binary stdio with Boa](examples/boa-stdio/): distinguish EOF from errors and read/write Uint8Array views with a complete framed example.
@@ -31,6 +31,8 @@ Small, runnable examples for practical development problems.
 
 - [Put static charts into a PDF report](examples/chart-report/): convert chart SVG to PNG, embed the images, and check the complete report with two sample datasets.
 
-Each example includes source and instructions to run it. Its guide describes the checked scope. Code is available under the [MIT license](LICENSE).
+- [Choose partitioning and nullability for small BigQuery raw tables](examples/bigquery-raw-design/): separate size guidance, data contracts and course requirements. The guide is in Spanish.
+
+Each example or guide explains how to use it and what was checked. Original code is available under the [MIT license](LICENSE).
 
 - [Generate a Kotlin SDK from a local OpenAPI file](examples/sdkgen-config): keep the generator configuration separate, generate the client, and call a local HTTP endpoint.
