@@ -39,6 +39,8 @@ Practical examples and guides for development problems.
 
 - [Use Typography as a static stylesheet](examples/typography-static/): link a prebuilt CSS file with bounded prose classes and no consuming-page JavaScript.
 
+- [Try live CSS in the Pele playground](examples/pele-live-styles/): change diagram styles, experiment with scoped theme rules and keep share/export limits clear.
+
 Each example or guide explains how to use it and what was checked. Original code is available under the [MIT license](LICENSE).
 
 - [Generate a Kotlin SDK from a local OpenAPI file](examples/sdkgen-config): keep the generator configuration separate, generate the client, and call a local HTTP endpoint.

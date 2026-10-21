@@ -1,0 +1,5 @@
+flowchart LR
+  start([Start]) --> review{Ready?}
+  review -- Yes --> done[Publish]
+  review -- No --> draft[Revise]
+  draft --> review
