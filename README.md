@@ -43,6 +43,8 @@ Practical examples and guides for development problems.
 
 - [Limit emissions from selected Temoa processes](examples/temoa-emission-scope/): keep existing regions, separate coverage accounting and compare caps with prices using real solved examples.
 
+- [Import embedded Excalidraw scenes into ExcaliDash](examples/embedded-scene-import/): convert scene-bearing PNG or SVG files locally while preserving editable elements and embedded images.
+
 Each example or guide explains how to use it and what was checked. Original code is available under the [MIT license](LICENSE).
 
 - [Generate a Kotlin SDK from a local OpenAPI file](examples/sdkgen-config): keep the generator configuration separate, generate the client, and call a local HTTP endpoint.

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Embedded scene import</title>
+  <style>
+    body { font: 17px/1.55 system-ui, sans-serif; color: #233041; background: #f4f6f8; margin: 0; }
+    main { max-width: 43rem; margin: 4rem auto; padding: 2rem; background: white; border: 1px solid #cbd3df; border-radius: .8rem; }
+    h1 { line-height: 1.2; margin-top: 0; }
+    label, input { display: block; margin: .7rem 0; }
+    button { font: inherit; padding: .55rem .9rem; border-radius: .3rem; border: 1px solid #345; background: #234f78; color: white; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: default; }
+    #status { min-height: 4.5rem; overflow-wrap: anywhere; }
+    @media (max-width: 650px) { main { margin: 1rem; padding: 1.2rem; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Import an embedded Excalidraw scene</h1>
+    <p>Turn a PNG or SVG exported with <strong>Embed scene</strong> into an editable <code>.excalidraw</code> file for ExcaliDash.</p>
+    <label for="image">Choose an exported image</label>
+    <input id="image" type="file" accept=".png,.svg,image/png,image/svg+xml">
+    <button id="convert" disabled>Convert and download</button>
+    <p id="status" role="status" aria-live="polite"></p>
+    <p>The file is read in this browser and is not uploaded. The original file stays unchanged. Ordinary images without embedded scene data cannot be restored to editable shapes.</p>
+  </main>
+  <script type="module" src="/main.mjs"></script>
+</body>
+</html>
