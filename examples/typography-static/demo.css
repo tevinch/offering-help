@@ -1,0 +1,17 @@
+/* Demo layout only; typography.min.css is the reusable article stylesheet. */
+@layer theme { :root { --color-slate-700: rgb(160, 30, 90); } }
+body { margin: 0; color: #203046; background: #f7f9fc; font: 16px/1.5 system-ui, sans-serif; }
+main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+.panel { margin: 1.5rem 0; padding: 1.25rem; background: white; border: 1px solid #d3dce8; border-radius: .5rem; min-width: 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 1rem; }
+.sample { min-width: 0; padding: 1rem; background: #f3f5f8; border-radius: .3rem; }
+.night { background: #111827; }
+.table-scroll { max-width: 100%; overflow-x: auto; }
+.table-scroll > table { min-width: 900px; }
+.widget { color: #203046; font: 16px/1.5 system-ui, sans-serif; padding: .75rem; border: 1px dashed #62758d; }
+.widget input, .widget button { max-width: 100%; box-sizing: border-box; }
+#existing button { border-color: var(--color-slate-700); }
+code, pre { overflow-wrap: anywhere; }
+pre { overflow-wrap: normal; }
+.label { font: 600 14px/1.4 system-ui, sans-serif; }
+@media (max-width: 450px) { .panel { padding: .75rem; } }

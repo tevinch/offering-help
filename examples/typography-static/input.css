@@ -1,0 +1,23 @@
+@layer typography;
+@import "tailwindcss/theme.css" layer(typography);
+@import "tailwindcss/utilities.css" layer(typography) source(none);
+@plugin "@tailwindcss/typography";
+
+/* Explicit classes make this stylesheet independent of any consuming HTML. */
+@source inline("prose prose-sm prose-base prose-lg prose-xl prose-2xl prose-gray prose-slate prose-zinc prose-neutral prose-stone prose-invert");
+
+/* Typography normally receives these table/border defaults from Preflight. */
+@layer typography {
+  .prose :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    border-collapse: collapse;
+  }
+  .prose :where(thead, tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    border-bottom-style: solid;
+  }
+  .prose :where(tfoot):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    border-top-style: solid;
+  }
+  .prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    border-inline-start-style: solid;
+  }
+}

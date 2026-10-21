@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Typography with one static stylesheet</title>
+  <link rel="stylesheet" href="./demo.css">
+  <link rel="stylesheet" href="./typography.min.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Typography with one static stylesheet</h1>
+    <p>This page uses plain HTML and CSS. Copy the compiled stylesheet to your site and add <code>class="prose"</code> to an article.</p>
+  </header>
+
+  <section class="panel widget" id="existing">
+    <h2>Existing page content</h2>
+    <p>This section is outside the article. Its heading, list and form keep their existing styles.</p>
+    <ul><li>Existing list item</li></ul>
+    <label>Draft note <input id="outside-note" value="Keep this note"></label>
+    <label><input id="outside-check" type="checkbox" checked> Remember this setting</label>
+    <button type="button">Existing button</button>
+  </section>
+
+  <section class="panel">
+    <article class="prose" id="article">
+      <h1>A short guide to a quiet workspace</h1>
+      <p class="lead">Good documentation should stay readable when it arrives as plain HTML, including content rendered from Markdown.</p>
+      <p>Start with a clear heading and a paragraph. <a href="#scales">Explore the text sizes</a>, use <strong>emphasis where it matters</strong>, and keep <code>inline code</code> legible.</p>
+      <h2>Set up the page</h2>
+      <ul><li>Keep the article in a <code>prose</code> container.</li><li>Use the published file as a normal CSS asset.</li><li>Choose one of the included sizes or gray themes.</li></ul>
+      <blockquote><p>A stylesheet can travel with the document. It does not need a runtime on the reader's site.</p></blockquote>
+      <h3>A long code example</h3>
+      <pre id="long-code"><code>const description = "This deliberately long line contains enough text to exercise horizontal scrolling on a narrow screen while keeping the complete example available at the far right: COMPLETE";</code></pre>
+      <h3>A wide table</h3>
+      <div class="table-scroll" id="wide-table">
+        <table><thead><tr><th>Item</th><th>Description</th><th>Region</th><th>Last detail</th></tr></thead>
+        <tbody><tr><td>Cedar</td><td>A long descriptive label for this ordinary sample row</td><td>North</td><td id="last-cell">Final column remains reachable</td></tr>
+        <tr><td>Maple</td><td>Another sample value, including 中文 text</td><td>West</td><td>Complete</td></tr></tbody></table>
+      </div>
+      <div class="not-prose widget" id="widget">
+        <h2>Embedded existing widget</h2>
+        <p>The widget supplies its own text styles. Typography selectors skip this subtree.</p>
+        <ul><li>Keep the widget's own list</li></ul>
+        <label>Widget note <input id="widget-note" value="Keep this widget note"></label>
+        <button type="button">Widget button</button>
+      </div>
+      <p>Continue writing after the widget. The article typography resumes here.</p>
+    </article>
+  </section>
+
+  <section class="panel" id="scales">
+    <h2>Included text sizes</h2>
+    <div class="grid">
+      <article class="prose prose-sm sample" data-size="sm"><p>Small article text: 14 pixels.</p></article>
+      <article class="prose prose-base sample" data-size="base"><p>Base article text: 16 pixels.</p></article>
+      <article class="prose prose-lg sample" data-size="lg"><p>Large article text: 18 pixels.</p></article>
+      <article class="prose prose-xl sample" data-size="xl"><p>Extra-large article text: 20 pixels.</p></article>
+      <article class="prose prose-2xl sample" data-size="2xl"><p>Largest article text: 24 pixels.</p></article>
+    </div>
+  </section>
+
+  <section class="panel" id="themes">
+    <h2>Included gray themes</h2>
+    <div class="grid">
+      <article class="prose prose-gray sample" data-theme="gray"><h3>Gray</h3><p>Article text and a <a href="#article">sample link</a>.</p></article>
+      <article class="prose prose-slate sample" data-theme="slate"><h3>Slate</h3><p>Article text and a <a href="#article">sample link</a>.</p></article>
+      <article class="prose prose-zinc sample" data-theme="zinc"><h3>Zinc</h3><p>Article text and a <a href="#article">sample link</a>.</p></article>
+      <article class="prose prose-neutral sample" data-theme="neutral"><h3>Neutral</h3><p>Article text and a <a href="#article">sample link</a>.</p></article>
+      <article class="prose prose-stone sample" data-theme="stone"><h3>Stone</h3><p>Article text and a <a href="#article">sample link</a>.</p></article>
+    </div>
+  </section>
+
+  <section class="panel night">
+    <article class="prose prose-slate prose-invert" id="inverted">
+      <h2>Inverted text on an existing dark surface</h2>
+      <p><code>prose-invert</code> selects the plugin's light text colors. This section's dark background comes from the page's own CSS.</p>
+      <p><a href="#article">Return to the article</a>.</p>
+    </article>
+  </section>
+  <footer><p>See README.md for the class list, build instructions, license and verified browser limits.</p></footer>
+</main>
+</body>
+</html>

@@ -37,6 +37,8 @@ Practical examples and guides for development problems.
 
 - [Export Tabulator rows as Markdown](examples/tabulator-markdown/): keep native export settings, column order and row ranges while preserving literal cell text.
 
+- [Use Typography as a static stylesheet](examples/typography-static/): link a prebuilt CSS file with bounded prose classes and no consuming-page JavaScript.
+
 Each example or guide explains how to use it and what was checked. Original code is available under the [MIT license](LICENSE).
 
 - [Generate a Kotlin SDK from a local OpenAPI file](examples/sdkgen-config): keep the generator configuration separate, generate the client, and call a local HTTP endpoint.
