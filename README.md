@@ -68,3 +68,4 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Parse role spellings with Strum](examples/role-spellings/): accept conventional separators and ASCII case variations while retaining structured input content.
 
 - [Anchor rotated plotnine tick labels](examples/rotated-tick-labels/): align label endpoints with ticks in final-size PNG, SVG and PDF exports.
+- [Collecting Eros errors from a loop](examples/collected-errors): keep child contexts and backtraces while propagating batch and surrounding errors.
