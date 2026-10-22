@@ -1,0 +1,3 @@
+# Merge this field into your existing backup section; this is not a full configuration.
+backup:
+  backupFileNameFormat: "'mcl4d2_'yyyy-MM-dd_HH-mm-ss"

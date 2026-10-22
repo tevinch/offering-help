@@ -52,3 +52,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Generate a Kotlin SDK from a local OpenAPI file](examples/sdkgen-config): keep the generator configuration separate, generate the client, and call a local HTTP endpoint.
 
 - [Coordinate concurrent Cachetory fills](examples/cachetory-coalesced-fill/): share one source load per key in an asyncio event loop, including expiration and cancellation checks.
+
+- [Put a literal prefix in Backuper filenames](examples/backup-name-prefix/): quote the YAML value and Java date pattern correctly, with a local format and reload check.
