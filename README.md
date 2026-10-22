@@ -66,3 +66,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Configure constants and future regressors in StatsForecast](examples/forecast-regression-constants/): compare trend models, continue forecast features, and inspect residual limits on complete series.
 
 - [Parse role spellings with Strum](examples/role-spellings/): accept conventional separators and ASCII case variations while retaining structured input content.
+
+- [Anchor rotated plotnine tick labels](examples/rotated-tick-labels/): align label endpoints with ticks in final-size PNG, SVG and PDF exports.
