@@ -62,3 +62,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Keep zoxide jumps within a tmux project](examples/project-directory-jump/): use a fixed session root for normal and interactive searches, including new panes and child shells.
 
 - [Fit a GPUI window to its content height](examples/content-height-window/): measure intrinsic content and resize the native window as rows or wrapping change.
+
+- [Configure constants and future regressors in StatsForecast](examples/forecast-regression-constants/): compare trend models, continue forecast features, and inspect residual limits on complete series.
