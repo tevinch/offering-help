@@ -64,3 +64,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Fit a GPUI window to its content height](examples/content-height-window/): measure intrinsic content and resize the native window as rows or wrapping change.
 
 - [Configure constants and future regressors in StatsForecast](examples/forecast-regression-constants/): compare trend models, continue forecast features, and inspect residual limits on complete series.
+
+- [Parse role spellings with Strum](examples/role-spellings/): accept conventional separators and ASCII case variations while retaining structured input content.

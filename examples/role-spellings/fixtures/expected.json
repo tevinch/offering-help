@@ -1,0 +1,11 @@
+{
+  "title": "An example work",
+  "affiliated": [
+    {"role": "cast-member", "names": ["Example, Alex"]},
+    {"role": "cast-member", "names": ["Example, Sam"]},
+    {"role": "cast-member", "names": ["Example, Jordan"]},
+    {"role": "executive-producer", "names": ["Example, Casey"]},
+    {"role": "director", "names": ["Example, Robin"]},
+    {"role": "translator", "names": ["O'Neil, A. \"Q\"", "李, 明"]}
+  ]
+}
