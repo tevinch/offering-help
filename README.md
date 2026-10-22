@@ -60,3 +60,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Keep the first From match in each file](examples/from-line-preparation/): prepare separate text copies and combine them while preserving file boundaries and original inputs.
 
 - [Keep zoxide jumps within a tmux project](examples/project-directory-jump/): use a fixed session root for normal and interactive searches, including new panes and child shells.
+
+- [Fit a GPUI window to its content height](examples/content-height-window/): measure intrinsic content and resize the native window as rows or wrapping change.
