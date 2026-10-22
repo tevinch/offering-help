@@ -45,6 +45,8 @@ Practical examples and guides for development problems.
 
 - [Import embedded Excalidraw scenes into ExcaliDash](examples/embedded-scene-import/): convert scene-bearing PNG or SVG files locally while preserving editable elements and embedded images.
 
+- [Export Rust wrapping integers with cbindgen](examples/wrapping-header): keep wrapping arithmetic while compiling and running C/C++ consumers against a generated integer field.
+
 Each example or guide explains how to use it and what was checked. Original code is available under the [MIT license](LICENSE).
 
 - [Generate a Kotlin SDK from a local OpenAPI file](examples/sdkgen-config): keep the generator configuration separate, generate the client, and call a local HTTP endpoint.

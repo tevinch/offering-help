@@ -1,0 +1,8 @@
+language = "C++"
+include_guard = "COUNTER_H"
+
+[export]
+exclude = ["WrappedU32"]
+
+[export.rename]
+WrappedU32 = "uint32_t"
