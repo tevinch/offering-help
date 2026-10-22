@@ -22,7 +22,7 @@ let schema = schemars::generate::SchemaSettings::draft2020_12()
     .into_root_schema_for::<Sample>();
 ```
 
-The [migration guide](https://graham.cool/schemars/migrating/) explains the separate serialization and deserialization contracts. The [settings API](https://docs.rs/schemars/1.2.3/schemars/generate/struct.SchemaSettings.html) documents the default.
+The [Generating Schemas guide](https://graham.cool/schemars/generating/#serialize-vs-deserialize-contract) explains the separate serialization and deserialization contracts. The [settings API](https://docs.rs/schemars/1.2.3/schemars/generate/struct.SchemaSettings.html) documents the default.
 
 ## Include both fields
 
