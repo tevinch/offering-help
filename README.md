@@ -54,3 +54,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Coordinate concurrent Cachetory fills](examples/cachetory-coalesced-fill/): share one source load per key in an asyncio event loop, including expiration and cancellation checks.
 
 - [Put a literal prefix in Backuper filenames](examples/backup-name-prefix/): quote the YAML value and Java date pattern correctly, with a local format and reload check.
+
+- [Describe asymmetric Serde fields with Schemars](examples/schemars-field-contracts/): generate request/response contracts and an annotated combined field list without changing Serde behavior.
