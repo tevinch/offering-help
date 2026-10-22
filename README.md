@@ -56,3 +56,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Put a literal prefix in Backuper filenames](examples/backup-name-prefix/): quote the YAML value and Java date pattern correctly, with a local format and reload check.
 
 - [Describe asymmetric Serde fields with Schemars](examples/schemars-field-contracts/): generate request/response contracts and an annotated combined field list without changing Serde behavior.
+
+- [Keep the first From match in each file](examples/from-line-preparation/): prepare separate text copies and combine them while preserving file boundaries and original inputs.
