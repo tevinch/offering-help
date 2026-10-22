@@ -1,14 +1,48 @@
 #!/usr/bin/env bash
-# Write separate transformed copies, then concatenate in argument order.
+# Write separate transformed copies, then concatenate in input order.
 set -eu
 export LC_ALL=C
 
-if [ "$#" -lt 2 ]; then
-    printf 'Usage: bash prepare.sh NEW_OUTPUT_DIRECTORY INPUT_FILE...\n' >&2
+usage() {
+    printf 'Usage: bash prepare.sh NEW_OUTPUT_DIRECTORY INPUT_FILE...\n       bash prepare.sh --files0-from FILE_LIST NEW_OUTPUT_DIRECTORY\n' >&2
     exit 2
+}
+
+[ "$#" -ge 2 ] || usage
+if [ "$1" = '--files0-from' ]; then
+    [ "$#" -eq 3 ] || usage
+    listing=$2
+    output=$3
+    [ -f "$listing" ] && [ -r "$listing" ] || {
+        printf 'Cannot read file list: %s\n' "$listing" >&2
+        exit 1
+    }
+    set --
+    # read and set are Bash builtins: no child receives the full path list.
+    while true; do
+        input=
+        if IFS= read -r -d '' input; then
+            [ -n "$input" ] || {
+                printf 'File list contains an empty pathname.\n' >&2
+                exit 1
+            }
+            set -- "$@" "$input"
+        else
+            [ -z "$input" ] || {
+                printf 'Every pathname must end with a NUL byte.\n' >&2
+                exit 1
+            }
+            break
+        fi
+    done < "$listing"
+    [ "$#" -gt 0 ] || {
+        printf 'File list is empty.\n' >&2
+        exit 1
+    }
+else
+    output=$1
+    shift
 fi
-output=$1
-shift
 command -v perl >/dev/null
 
 # A blank sentinel keeps Bash 3.2's nounset handling of empty arrays happy.

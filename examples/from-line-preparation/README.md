@@ -24,6 +24,17 @@ prepared/
   combined.txt
 ```
 
+For enough files to exceed the system's command-line size limit, supply a **NUL-separated file list** instead of expanding every path into the command:
+
+```sh
+find ./messages -type f -print0 > inputs.list0 &&
+  bash prepare.sh --files0-from inputs.list0 prepared
+```
+
+Keep the list and output directory outside `./messages`. This includes files in subdirectories; their basenames must still be distinct. Processing follows the list order, which for this `find` command is filesystem traversal order, not necessarily filename or date order. If order matters, generate the list in that order. Spaces, tabs and newlines in filenames are preserved; every path must end in a NUL byte. An empty list, empty pathname or unterminated final entry is rejected before creating output. Relative paths are resolved from the directory where you run the script.
+
+The list is read into Bash memory, so this removes the process argument limit, not memory or processing-time limits. Each Perl command still receives just one input through redirection. Do not substitute `$(cat inputs.list0)` or use `xargs` to repeatedly target the same output directory.
+
 Each `parts` file preserves all original bytes except the inserted `>` characters, including CRLF and a missing final newline. `combined.txt` adds an LF after any nonempty part that lacks one; otherwise the following file's first `From` could end up halfway through a line. Empty files contribute no bytes. An error leaves any already-created copies for inspection; the script does not delete them or overwrite an existing destination.
 
 For example, given two files:
@@ -54,7 +65,7 @@ Run the synthetic checks with Python 3:
 python3 test_prepare.py
 ```
 
-The checks run the real Bash/Perl commands, compare exact output and unchanged inputs, split the combined output into the expected records, repeat the transformation, and cover empty/no-match files, raw bytes, CRLF, missing final newlines, spaces in paths and output collisions. Verified with Bash 3.2 and Perl 5.34.1 on macOS. No real mail is used.
+The checks run the real Bash/Perl commands, compare exact output and unchanged inputs, split the combined output into the expected records, repeat the transformation, and cover empty/no-match files, raw bytes, CRLF, missing final newlines, unusual filenames, malformed lists and output collisions. The large-list check first confirms the equivalent argument invocation fails with `E2BIG`, then processes all files through the list; it skips hosts whose argument limit needs more than 4,000 fixture files. Verified with Bash 3.2 and Perl 5.34.1 on macOS. No real mail is used.
 
 ## Optional coffee
 
