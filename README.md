@@ -58,3 +58,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Describe asymmetric Serde fields with Schemars](examples/schemars-field-contracts/): generate request/response contracts and an annotated combined field list without changing Serde behavior.
 
 - [Keep the first From match in each file](examples/from-line-preparation/): prepare separate text copies and combine them while preserving file boundaries and original inputs.
+
+- [Keep zoxide jumps within a tmux project](examples/project-directory-jump/): use a fixed session root for normal and interactive searches, including new panes and child shells.
