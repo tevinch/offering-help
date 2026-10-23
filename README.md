@@ -81,3 +81,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Choose a MOSS-Image model download location](examples/model-download-location/): configure a shared Hub cache or complete local model directory, with a small file-placement check.
 
 - [Navigate a Dioxus virtual list](examples/virtual-list-navigation/): jump to a row, submit with Enter, and return to the top while retaining the list and edited content.
+
+- [Package a dprint Wasm plugin for npm](examples/wasm-plugin-package/): inspect the tarball and test native plugin loading in a fresh consumer.

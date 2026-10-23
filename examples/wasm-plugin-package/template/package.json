@@ -1,0 +1,7 @@
+{
+  "name": "dprint-wasm-example",
+  "version": "0.0.0",
+  "private": true,
+  "files": ["plugin.wasm"],
+  "license": "MIT"
+}
