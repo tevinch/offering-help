@@ -99,3 +99,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Read inventory CSV by column name](examples/csv-named-columns/): keep named mapping when unused trailing header columns outnumber data fields, while preserving real validation errors.
 
 - [Let environment values override YAML in Kong](examples/kong-env-yaml/): resolve flags, environment, YAML and defaults in one parse while keeping native type validation.
+
+- [Query UTC reports in a chosen time zone](examples/zone-picker/): use Ant Design date, time and range controls with a shared IANA zone, stored UTC instants and a complete local query example.

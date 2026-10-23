@@ -1,0 +1,22 @@
+body { margin: 0; background: #f5f7fb; color: #17283b; font-family: system-ui, sans-serif; }
+main { width: min(940px, 100%); margin: 0 auto; padding: 40px 24px; }
+h1 { font-size: 36px; margin: 4px 0 12px; }
+h2 { font-size: 19px; margin: 20px 0 10px; }
+p { line-height: 1.55; margin-bottom: 12px; }
+.eyebrow { color: #456479; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+.settings, .field { background: white; border: 1px solid #dce3ed; border-radius: 10px; padding: 18px; margin: 18px 0; }
+.settings { display: flex; flex-wrap: wrap; gap: 14px 20px; }
+label { display: block; font-weight: 600; margin-bottom: 8px; }
+select, input[type="date"] { display: block; margin-top: 6px; padding: 8px; border: 1px solid #a6b4c4; border-radius: 5px; background: white; max-width: 100%; }
+.hint { color: #52677a; font-size: 13px; margin: 8px 0 0; }
+.row, .actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.anchor { font-size: 13px; margin: 0; }
+.range-labels { display: flex; gap: 130px; }
+.row > button, .actions > button { padding: 8px 12px; border: 1px solid #a6b4c4; border-radius: 5px; background: white; cursor: pointer; }
+.row > button:disabled, .actions > button:disabled, select:disabled { opacity: .55; cursor: not-allowed; }
+.actions > button.primary { background: #1559a2; color: white; border-color: #1559a2; }
+[role="alert"] { background: #fff1ec; border-left: 3px solid #b6341d; padding: 10px 16px; }
+[role="alert"] p { margin: 0; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #132b40; color: #e3f1fc; border-radius: 8px; padding: 18px; }
+li { margin: 8px 0; }
+@media (max-width: 600px) { main { padding: 24px 14px; } h1 { font-size: 30px; } .ant-picker-range { width: 100%; } }
