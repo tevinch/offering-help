@@ -73,3 +73,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Read settings and options from a Conan package list](examples/conan-package-settings/): keep the package filter and retrieve configuration from the package-ID level.
 
 - [Route file changes through one watcher](examples/watch-event-routing/): share watched roots and dispatch complete event groups to separate handlers.
+
+- [Use Reylo SQL files with Knex](examples/knex-sql-files/): bind named values and use inferred parameter and row types in a complete SQLite example.

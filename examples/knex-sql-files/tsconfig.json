@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "types": [
+      "node"
+    ]
+  },
+  "contentMappers": [
+    {
+      "package": "reylo",
+      "extensions": [
+        ".sql",
+        ".reylo.yaml",
+        ".reylo.yml"
+      ]
+    }
+  ],
+  "include": [
+    "main.ts"
+  ]
+}

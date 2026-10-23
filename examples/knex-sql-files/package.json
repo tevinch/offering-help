@@ -1,0 +1,24 @@
+{
+  "name": "knex-sql-files-example",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "setup": "node setup.mjs",
+    "typecheck": "tsc --noEmit --runExternalCode",
+    "start": "node --import reylo/register main.ts",
+    "test": "node --test example.test.mjs"
+  },
+  "dependencies": {
+    "better-sqlite3": "13.0.3",
+    "knex": "3.3.0",
+    "reylo": "0.3.0"
+  },
+  "devDependencies": {
+    "@reylosql/sqlite": "0.3.0",
+    "@types/node": "24.10.0",
+    "typescript": "7.1.0-beta"
+  }
+}
