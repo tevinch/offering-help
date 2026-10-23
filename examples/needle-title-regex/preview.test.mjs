@@ -35,6 +35,7 @@ test("the runnable examples print actual arrays and joined text", () => {
   const records = run.stdout.trim().split("\n").map(line => JSON.parse(line));
   assert.deepEqual(records.map(record => record.joined), [
     "red | blue | green", "red", "red blue | red | blue", "red blue | green gold", "", "café / 茶",
+    "", "Weekly summary", "Second",
   ]);
   assert.deepEqual(records[0], {
     message: "red blue green", titleFormat: "/[a-z]+/g", join: " | ",

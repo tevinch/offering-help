@@ -16,6 +16,12 @@ const examples = [
   { message: "red blue green gold", expression: /([a-z]+) ([a-z]+)/g, join: " | " },
   { message: "red blue", expression: /[0-9]+/g, join: " | " },
   { message: "café 茶", expression: /[^\s]+/gu, join: " / " },
+  // Synthetic, already assembled input: body, blank line, first embed title,
+  // blank line, description, then the empty footer and trailing separator.
+  { message: "New report\n\nWeekly summary\n\nDetails\n\n\n\n", expression: /(?<=\n).*?$/m, join: "" },
+  { message: "New report\n\nWeekly summary\n\nDetails\n\n\n\n", expression: /(?<=^[^\r\n]*\n\n)[^\r\n]+/, join: "" },
+  // Outside the no-line-breaks body condition: this selects body text, not a title.
+  { message: "First\n\nSecond\n\nWeekly summary\n\nDetails\n\n\n\n", expression: /(?<=^[^\r\n]*\n\n)[^\r\n]+/, join: "" },
 ];
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
