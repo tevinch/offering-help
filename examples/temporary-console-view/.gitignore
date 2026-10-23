@@ -1,0 +1,4 @@
+bin/
+obj/
+validation/node_modules/
+validation/__pycache__/

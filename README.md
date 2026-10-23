@@ -87,3 +87,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Render editable inline marker ranges](examples/inline-mark-ranges/): add three marks per match in React CodeMirror while preserving editing, undo and saved text.
 
 - [Read database rows asynchronously with CSLA](examples/async-data-reader/): await the complete data-portal and ADO.NET call chain, with real PostgreSQL result and recovery checks.
+
+- [Show a temporary console view with a selection](examples/temporary-console-view/): keep widgets visible while choosing, then restore the original screen and return the result.

@@ -1,0 +1,6 @@
+{
+  "name": "temporary-console-view-check",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {"@xterm/headless": "6.0.0"}
+}
