@@ -1,0 +1,7 @@
+debug: true
+workers: 8
+name: from-yaml
+timeout: 30s
+tags: [yaml, shared]
+labels:
+  region: yaml

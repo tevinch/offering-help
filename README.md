@@ -97,3 +97,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Load CSV aliases from a database](examples/csv-database-aliases/): add a header alias without rebuilding a fixed typed importer, with a complete SQLite-to-records example.
 
 - [Read inventory CSV by column name](examples/csv-named-columns/): keep named mapping when unused trailing header columns outnumber data fields, while preserving real validation errors.
+
+- [Let environment values override YAML in Kong](examples/kong-env-yaml/): resolve flags, environment, YAML and defaults in one parse while keeping native type validation.
