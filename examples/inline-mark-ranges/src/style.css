@@ -1,0 +1,8 @@
+body { margin: 0; padding: 2rem; font: 16px/1.5 system-ui, sans-serif; background: #f4f7fa; color: #172433; }
+main { max-width: 52rem; margin: auto; }
+h1 { font-size: 1.7rem; }
+h2 { font-size: 1rem; }
+.cm-editor { border: 1px solid #9badbf; border-radius: 6px; background: white; }
+.cm-scroller { font-family: ui-monospace, monospace; }
+pre { white-space: pre-wrap; padding: .7rem; background: white; border: 1px solid #c4ced8; }
+button { padding: .5rem .9rem; cursor: pointer; }

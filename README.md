@@ -83,3 +83,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Navigate a Dioxus virtual list](examples/virtual-list-navigation/): jump to a row, submit with Enter, and return to the top while retaining the list and edited content.
 
 - [Package a dprint Wasm plugin for npm](examples/wasm-plugin-package/): inspect the tarball and test native plugin loading in a fresh consumer.
+
+- [Render editable inline marker ranges](examples/inline-mark-ranges/): add three marks per match in React CodeMirror while preserving editing, undo and saved text.
