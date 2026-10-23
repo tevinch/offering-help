@@ -79,3 +79,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Capture C/C++ switch branch statements](examples/switch-case-statements/): constrain the containing switch and extract the case body before its final break with ast-grep rules.
 
 - [Choose a MOSS-Image model download location](examples/model-download-location/): configure a shared Hub cache or complete local model directory, with a small file-placement check.
+
+- [Navigate a Dioxus virtual list](examples/virtual-list-navigation/): jump to a row, submit with Enter, and return to the top while retaining the list and edited content.
