@@ -9,15 +9,16 @@ from conan.api.model import ListPattern
 
 def package_settings(package_list):
     """Yield settings/options for each package revision selected by Conan."""
-    for recipe, packages in package_list.items():
-        package_ids = package_list.recipe_dict(recipe)["packages"]
-        for reference in packages:
-            info = package_ids[reference.package_id]["info"]
-            yield {
-                "reference": reference.repr_notime(),
-                "settings": dict(info.get("settings", {})),
-                "options": dict(info.get("options", {})),
-            }
+    for recipe, recipe_data in package_list.serialize().items():
+        for revision, revision_data in recipe_data.get("revisions", {}).items():
+            for package_id, package in revision_data.get("packages", {}).items():
+                info = package["info"]
+                for package_revision in package.get("revisions", {}):
+                    yield {
+                        "reference": f"{recipe}#{revision}:{package_id}#{package_revision}",
+                        "settings": dict(info.get("settings", {})),
+                        "options": dict(info.get("options", {})),
+                    }
 
 
 def main():

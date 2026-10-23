@@ -1,6 +1,6 @@
 # Read Conan package settings and options
 
-Keep your existing `ConanAPI.list.select()` query and read configuration at the **package ID** level. In Conan 2.33.0, `items()` and `package_dict(pref)` expose the **package revision** dictionary, which contains the timestamp in this case.
+Keep your existing `ConanAPI.list.select()` query, call `serialize()`, and read configuration at the **package ID** level. In Conan 2.33.0, `items()` and `package_dict(pref)` expose the **package revision** dictionary, which contains the timestamp in this case.
 
 ```python
 from conan.api.conan_api import ConanAPI
@@ -12,16 +12,17 @@ selected = api.list.select(
     package_query="os=Android",
 )
 
-for recipe, references in selected.items():
-    packages = selected.recipe_dict(recipe)["packages"]
-    for reference in references:
-        info = packages[reference.package_id]["info"]
-        print(reference)
-        print("settings:", info.get("settings", {}))
-        print("options:", info.get("options", {}))
+for recipe, recipe_data in selected.serialize().items():
+    for revision, revision_data in recipe_data.get("revisions", {}).items():
+        for package_id, package in revision_data.get("packages", {}).items():
+            info = package["info"]
+            for package_revision in package.get("revisions", {}):
+                print(f"{recipe}#{revision}:{package_id}#{package_revision}")
+                print("settings:", info.get("settings", {}))
+                print("options:", info.get("options", {}))
 ```
 
-`recipe_dict()` is a public API. This uses configuration already returned by `select()`; it does not need a second query, private attributes or direct cache-file parsing.
+This reads configuration already returned by `select()`; it does not need a second query, private attributes or direct cache-file parsing. The example follows the [maintainer's compatibility guidance](https://github.com/conan-io/conan/issues/20430#issuecomment-6364696331): use the documented `serialize()` output instead of depending on the nested layout returned by `recipe_dict()`.
 
 The relevant structure returned by `serialize()` is:
 
