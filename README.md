@@ -77,3 +77,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Use Reylo SQL files with Knex](examples/knex-sql-files/): bind named values and use inferred parameter and row types in a complete SQLite example.
 
 - [Capture C/C++ switch branch statements](examples/switch-case-statements/): constrain the containing switch and extract the case body before its final break with ast-grep rules.
+
+- [Choose a MOSS-Image model download location](examples/model-download-location/): configure a shared Hub cache or complete local model directory, with a small file-placement check.
