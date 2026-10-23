@@ -69,3 +69,5 @@ Each example or guide explains how to use it and what was checked. Original code
 
 - [Anchor rotated plotnine tick labels](examples/rotated-tick-labels/): align label endpoints with ticks in final-size PNG, SVG and PDF exports.
 - [Collecting Eros errors from a loop](examples/collected-errors): keep child contexts and backtraces while propagating batch and surrounding errors.
+
+- [Read settings and options from a Conan package list](examples/conan-package-settings/): keep the package filter and retrieve configuration from the package-ID level.
