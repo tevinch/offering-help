@@ -91,3 +91,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Show a temporary console view with a selection](examples/temporary-console-view/): keep widgets visible while choosing, then restore the original screen and return the result.
 
 - [Remove a JPEG trailer into a separate copy](examples/jpeg-trailer-copy/): pass native deletion options through the ExifTool wrapper and verify actual saved images.
+
+- [Find the normalized range containing an address](examples/containing-range/): return the matching range and snapshot index for diagnostic values using public netipx APIs.
