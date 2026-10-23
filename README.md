@@ -89,3 +89,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Read database rows asynchronously with CSLA](examples/async-data-reader/): await the complete data-portal and ADO.NET call chain, with real PostgreSQL result and recovery checks.
 
 - [Show a temporary console view with a selection](examples/temporary-console-view/): keep widgets visible while choosing, then restore the original screen and return the result.
+
+- [Remove a JPEG trailer into a separate copy](examples/jpeg-trailer-copy/): pass native deletion options through the ExifTool wrapper and verify actual saved images.

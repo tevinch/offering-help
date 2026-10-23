@@ -1,0 +1,22 @@
+{
+  "name": "jpeg-trailer-copy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 4181 --strictPort",
+    "build": "vite build",
+    "test": "playwright test",
+    "test:negative": "OMIT_DELETE=1 playwright test -g \"tags removes\"",
+    "preview": "vite preview --host 127.0.0.1 --port 4181 --strictPort",
+    "test:production": "TEST_PREVIEW=1 playwright test"
+  },
+  "dependencies": {
+    "@uswriting/exiftool": "1.0.9",
+    "@6over3/zeroperl-ts": "1.0.10"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.61.1",
+    "vite": "6.4.5"
+  }
+}
