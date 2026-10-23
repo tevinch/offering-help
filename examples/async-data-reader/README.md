@@ -62,6 +62,8 @@ In [PersonDal.cs](PersonDal.cs), use `await dataSource.OpenConnectionAsync(token
 
 In [PersonList.cs](PersonList.cs), make the data portal operation `async Task`, await the DAL result, then populate the list before returning. In the caller, await `FetchAsync` before using the result. There are no blocking task waits or fire-and-forget database calls in this example.
 
+The async console caller is a choice made by this example, not a requirement to convert every existing client to async. As [the CSLA maintainer explains](https://github.com/MarimerLLC/csla/discussions/4958#discussioncomment-19149418), the data portal separates the logical client and server: an older WinForms or WPF client can retain its calling model while the server uses async operations. Follow the data portal rules for your client and proxy. This example does not test a synchronous UI caller or a remote portal.
+
 One thread-safe `NpgsqlDataSource` supplies a separate connection for each DAL call. Do not share a connection, command, reader or mutable CSLA object across concurrent operations. This read-only example has no asynchronous business rules; applications with those rules must still decide their concurrency and completion policy.
 
 The optional `CancellationToken` parameter belongs to the DAL. The cancellation check waits until PostgreSQL is actually executing, cancels the provider operation, observes `OperationCanceledException`, and then performs a successful later fetch through the same data source. The CSLA `[Fetch]` uses the default token here. This does not propagate a token through a remote data portal or decide which business operations should continue after a caller disconnects.
