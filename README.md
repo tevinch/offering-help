@@ -93,3 +93,7 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Remove a JPEG trailer into a separate copy](examples/jpeg-trailer-copy/): pass native deletion options through the ExifTool wrapper and verify actual saved images.
 
 - [Find the normalized range containing an address](examples/containing-range/): return the matching range and snapshot index for diagnostic values using public netipx APIs.
+
+- [Load CSV aliases from a database](examples/csv-database-aliases/): add a header alias without rebuilding a fixed typed importer, with a complete SQLite-to-records example.
+
+- [Read inventory CSV by column name](examples/csv-named-columns/): keep named mapping when unused trailing header columns outnumber data fields, while preserving real validation errors.
