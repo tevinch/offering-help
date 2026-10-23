@@ -75,3 +75,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Route file changes through one watcher](examples/watch-event-routing/): share watched roots and dispatch complete event groups to separate handlers.
 
 - [Use Reylo SQL files with Knex](examples/knex-sql-files/): bind named values and use inferred parameter and row types in a complete SQLite example.
+
+- [Capture C/C++ switch branch statements](examples/switch-case-statements/): constrain the containing switch and extract the case body before its final break with ast-grep rules.

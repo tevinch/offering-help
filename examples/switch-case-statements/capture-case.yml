@@ -1,0 +1,27 @@
+id: capture-case-statements
+language: Cpp
+rule:
+  all:
+    - pattern:
+        context: 'switch (0) { case $X: $$$BODY }'
+        selector: case_statement
+    - has:
+        kind: break_statement
+        regex: '^break\s*;$'
+        not:
+          precedes:
+            regex: .
+            stopBy: end
+    - inside:
+        kind: compound_statement
+        inside:
+          pattern:
+            context: 'switch ($X) { $$$CASES }'
+            selector: switch_statement
+transform:
+  STATEMENTS:
+    replace:
+      source: $$$BODY
+      replace: 'break\s*;\s*$'
+      by: ''
+message: $STATEMENTS

@@ -1,0 +1,25 @@
+id: extract-single-switch-statements
+language: Cpp
+rule:
+  all:
+    - pattern:
+        context: 'switch ($X) { case $X: $$$BODY }'
+        selector: switch_statement
+    - has:
+        kind: compound_statement
+        has:
+          kind: case_statement
+          has:
+            kind: break_statement
+            regex: '^break\s*;$'
+            not:
+              precedes:
+                regex: .
+                stopBy: end
+transform:
+  STATEMENTS:
+    replace:
+      source: $$$BODY
+      replace: 'break\s*;\s*$'
+      by: ''
+fix: $STATEMENTS
