@@ -119,3 +119,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Create a group by dropping between lists](examples/group-insertion/): use sibling drop targets and conditional rules with complete pointer and keyboard operations.
 
 - [Supply per-stack generation inputs](examples/stack-inputs/): create Terramate stack metadata first, fill in different local globals and generate all outputs from one shared template.
+
+- [Write your own column workings](examples/column-workings/): type arithmetic steps, add carry or borrowing notes and crossouts, and print the completed page without TeX.

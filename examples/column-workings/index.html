@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Column workings</title>
+  <meta name="description" content="Write whole-number column arithmetic with a keyboard, including carries, crossed-out digits and long division.">
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Column workings</h1>
+      <p class="intro">Write the steps yourself, one square at a time.</p>
+    </header>
+    <form id="setup" novalidate>
+      <label>Operation <select id="operation" aria-label="Operation"><option value="add">Addition +</option><option value="sub">Subtraction −</option><option value="mul">Multiplication ×</option><option value="div">Long division ÷</option></select></label>
+      <label>First number <input id="first" type="text" inputmode="numeric" value="58" autocomplete="off"></label>
+      <label>Second number <input id="second" type="text" inputmode="numeric" value="67" autocomplete="off"></label>
+      <button type="submit">Make page</button>
+      <p id="error" role="alert"></p>
+    </form>
+    <section id="instructions" aria-label="How to write">
+      <p>Click a square and type a digit. Typing moves right; arrow keys move between squares. Backspace clears a digit. The starting numbers stay in place.</p>
+      <p>For a carry or borrowed number, select its square, choose <strong>Small number</strong> and type up to two digits, such as 10. Escape returns to the main square. <strong>Cross out</strong> keeps the original digit visible. <strong>Underline row</strong> adds or removes a line below that row.</p>
+    </section>
+    <section id="work" aria-label="Writing page">
+      <div class="toolbar" role="group" aria-label="Writing tools">
+        <button type="button" id="small">Small number</button>
+        <button type="button" id="cross" aria-pressed="false">Cross out</button>
+        <button type="button" id="line" aria-pressed="false">Underline row</button>
+        <button type="button" id="add-row">Add working row</button>
+        <button type="button" id="print">Print</button>
+      </div>
+      <p id="selection" aria-live="polite"></p>
+      <h2 id="problem"></h2>
+      <div id="sheet-scroll" tabindex="0" aria-label="Scroll writing page horizontally when needed">
+        <table aria-label="Your working"><tbody id="grid"></tbody></table>
+      </div>
+    </section>
+    <footer><p>Whole numbers up to 8 digits. Subtraction must have a nonnegative answer; division by zero is unavailable. This page does not calculate or check your work. Print to keep it: a new page or reload clears the current work.</p></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,57 @@
+:root { color-scheme: light; font-family: system-ui, sans-serif; color: #152839; background: #f5f7fa; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { max-width: 1120px; margin: auto; padding: 24px; }
+h1 { font-size: 2rem; margin: 0; }
+.intro { margin: 6px 0 22px; color: #455c6f; }
+form { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; }
+label { display: grid; gap: 5px; font-weight: 600; }
+input, select, button { font: inherit; }
+form input { width: 150px; }
+form input, select, button { border: 1px solid #99acbb; border-radius: 6px; padding: 10px 12px; background: white; color: inherit; }
+button { cursor: pointer; font-weight: 600; min-height: 44px; }
+button:hover { background: #eaf2f9; }
+button:focus-visible, form input:focus-visible, select:focus-visible { outline: 3px solid #176eac; outline-offset: 2px; }
+button[aria-pressed="true"] { background: #d5eafb; border-color: #176eac; }
+#error { color: #a52424; margin: 0; flex-basis: 100%; }
+#error:empty { display: none; }
+#instructions { font-size: .95rem; max-width: 980px; line-height: 1.55; }
+#instructions p { margin: 14px 0; }
+#work { background: white; border: 1px solid #cfdae3; border-radius: 10px; padding: 18px; margin-top: 18px; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; }
+#selection { margin: 10px 0 0; min-height: 1.5em; color: #455c6f; font-size: .9rem; }
+h2 { font-size: 1.2rem; margin: 12px 0; font-weight: 500; }
+#sheet-scroll { overflow-x: auto; padding: 3px; }
+table { --cell: 52px; border-collapse: collapse; table-layout: fixed; width: calc(var(--columns) * var(--cell)); }
+td { width: var(--cell); height: calc(var(--cell) * 1.35); border: 1px solid #d4e1ea; position: relative; padding: 0; vertical-align: bottom; }
+.digit { display: block; width: 100%; height: 64%; border: 0; padding: 0; background: transparent; border-radius: 0; text-align: center; color: #152839; font: 500 calc(var(--cell) * .66)/1.15 ui-monospace, monospace; caret-color: #176eac; }
+.digit[readonly] { font-weight: 700; }
+.small-number { position: absolute; top: 2px; left: 5%; width: 90%; height: 30%; padding: 0; border: 0; background: transparent; border-radius: 0; text-align: center; color: #214f70; font: 600 calc(var(--cell) * .35)/1 ui-monospace, monospace; }
+.digit:focus, .small-number:focus { outline: 3px solid #176eac; outline-offset: -3px; background: #eaf5ff; }
+td.selected { background: #f3f8fc; }
+td.crossed .digit, td.crossed .print-digit { text-decoration: line-through; text-decoration-thickness: 2px; }
+tr.underlined td { border-bottom: 2px solid #152839; }
+td.division-top { border-top: 2px solid #152839; }
+td.division-start { border-left: 2px solid #152839; }
+.operator { position: absolute; left: 0; bottom: 4px; width: 100%; text-align: center; pointer-events: none; font-size: calc(var(--cell) * .65); line-height: 1; }
+.print-digit, .print-note { display: none; }
+footer { color: #455c6f; font-size: .9rem; line-height: 1.5; }
+@media (max-width: 600px) { main { padding: 14px; } #work { padding: 10px; } form input { width: 130px; } table { --cell: 46px; } }
+@page { size: A4 portrait; margin: 12mm; }
+@media print {
+  :root { background: white; color: black; }
+  body { margin: 0; }
+  main { max-width: none; padding: 0; }
+  header .intro, form, #instructions, .toolbar, #selection, footer { display: none; }
+  h1 { font-size: 17pt; margin-bottom: 4mm; }
+  h2 { font-size: 12pt; margin: 0 0 5mm; }
+  #work { border: 0; padding: 0; margin: 0; }
+  #sheet-scroll { overflow: visible; padding: 0; }
+  table { --cell: min(13mm, calc(184mm / var(--columns))); }
+  tr { break-inside: avoid; }
+  td { background: white !important; border-color: #bbc6ce; }
+  .digit, .small-number { display: none; }
+  .print-digit { display: block; text-align: center; height: 64%; font: 500 calc(var(--cell) * .66)/1.15 ui-monospace, monospace; color: black; }
+  td.given .print-digit { font-weight: 700; }
+  .print-note { display: block; position: absolute; top: 2px; width: 100%; text-align: center; font: 600 calc(var(--cell) * .35)/1 ui-monospace, monospace; color: black; }
+}
