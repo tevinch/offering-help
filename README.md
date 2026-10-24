@@ -117,3 +117,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Keep long integer input exact](examples/long-integer-input/): group unsigned digit strings with Maska and preserve them through Vue state, editing and a local HTTP handoff.
 
 - [Create a group by dropping between lists](examples/group-insertion/): use sibling drop targets and conditional rules with complete pointer and keyboard operations.
+
+- [Supply per-stack generation inputs](examples/stack-inputs/): create Terramate stack metadata first, fill in different local globals and generate all outputs from one shared template.
