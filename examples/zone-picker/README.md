@@ -55,6 +55,8 @@ The pinned versions are Ant Design 6.6.7, `@rc-component/picker` 1.12.2, Luxon 3
 
 This is a browser SPA with one shared zone. `Settings.defaultZone` is process-global: **do not set it per user request in a multiuser SSR process**. It is not a new `ConfigProvider.timeZone` feature. No dependencies or date-library methods are patched.
 
+If your SPA reloads the whole application after a zone change, the integration can be simpler: save the validated IANA preference, reload, and read it before mounting any date controls. Set `Settings.defaultZone` once during that startup and construct the initial picker values in the same zone. Keep saved report values as UTC instants. Save or explicitly discard unfinished edits before reloading; this example persists committed values only. The live zone selector demonstrates an additional option, rather than a requirement for an application that uses one zone for each page lifetime.
+
 ## Verify
 
 ```sh
