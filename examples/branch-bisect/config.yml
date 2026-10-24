@@ -1,0 +1,16 @@
+customCommands:
+  - key: 'b'
+    context: 'subCommits'
+    description: 'Mark selected commit for bisect'
+    prompts:
+      - type: 'menu'
+        title: 'Mark {{.SelectedCommit.Hash}}'
+        key: 'Mark'
+        options:
+          - name: 'good'
+            value: 'good'
+          - name: 'bad'
+            value: 'bad'
+    command: 'git bisect {{.Form.Mark}} {{.SelectedCommit.Hash}}'
+    output: 'popup'
+    outputTitle: 'Git bisect'
