@@ -101,3 +101,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Let environment values override YAML in Kong](examples/kong-env-yaml/): resolve flags, environment, YAML and defaults in one parse while keeping native type validation.
 
 - [Query UTC reports in a chosen time zone](examples/zone-picker/): use Ant Design date, time and range controls with a shared IANA zone, stored UTC instants and a complete local query example.
+
+- [Read a typed value from nested JSON](examples/nested-json-value/): select an API response subtree while keeping the same type usable with standalone JSON.
