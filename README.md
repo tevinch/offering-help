@@ -111,3 +111,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Mark another branch during a LazyGit bisect](examples/branch-bisect/): use the selected subcommits hash and complete a bisect across diverged branches without a custom build.
 
 - [Expand a tree from its pinned parent row](examples/tree-row-pinning/): use a custom button with the original self-referential tree while preserving normal body expansion, sorting and selection.
+
+- [Keep per-string translation flags in JSON](examples/json-po-flags/): extract to one Weblate PO component and compile reviewed translations back, with source-update and native-check examples.

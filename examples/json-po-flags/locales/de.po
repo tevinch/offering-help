@@ -1,0 +1,23 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Messages\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Introductory documentation; keep the emphasis.
+#, md-text
+msgctxt "docs.guide"
+msgid "Read **this** before continuing."
+msgstr "Lesen Sie **dies**, bevor Sie fortfahren."
+
+#. Legacy Java MessageFormat count; {0} is the item count.
+#, java-format
+msgctxt "legacy.items"
+msgid "Items: {0}"
+msgstr "Artikel: {0}"
+
+#. Plain text; the asterisks are literal here.
+msgctxt "plain.example"
+msgid "An **example**."
+msgstr "Ein Beispiel."

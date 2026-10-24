@@ -1,0 +1,18 @@
+{
+  "docs.guide": {
+    "defaultMessage": "Read **this** before continuing.",
+    "description": "Introductory documentation; keep the emphasis.",
+    "weblateFlags": ["md-text"]
+  },
+  "legacy.items": {
+    "defaultMessage": "Items: {0}",
+    "description": "Legacy Java MessageFormat count; {0} is the item count.",
+    "weblateFlags": ["java-format"]
+  },
+  "plain.example": {
+    "defaultMessage": "An **example**.",
+    "description": "Plain text; the asterisks are literal here.",
+    "weblateFlags": [],
+    "category": "plain"
+  }
+}
