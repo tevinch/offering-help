@@ -113,3 +113,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Expand a tree from its pinned parent row](examples/tree-row-pinning/): use a custom button with the original self-referential tree while preserving normal body expansion, sorting and selection.
 
 - [Keep per-string translation flags in JSON](examples/json-po-flags/): extract to one Weblate PO component and compile reviewed translations back, with source-update and native-check examples.
+
+- [Keep long integer input exact](examples/long-integer-input/): group unsigned digit strings with Maska and preserve them through Vue state, editing and a local HTTP handoff.
