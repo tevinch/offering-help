@@ -115,3 +115,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Keep per-string translation flags in JSON](examples/json-po-flags/): extract to one Weblate PO component and compile reviewed translations back, with source-update and native-check examples.
 
 - [Keep long integer input exact](examples/long-integer-input/): group unsigned digit strings with Maska and preserve them through Vue state, editing and a local HTTP handoff.
+
+- [Create a group by dropping between lists](examples/group-insertion/): use sibling drop targets and conditional rules with complete pointer and keyboard operations.

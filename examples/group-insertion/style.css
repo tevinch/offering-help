@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: #172b3a; background: #f8fafc; }
+main { max-width: 1440px; margin: 32px auto; padding: 0 24px; }
+h1 { font-size: 26px; line-height: 1.3; }
+h2 { font-size: 18px; margin: 0 0 16px; }
+p { max-width: 80ch; }
+[role="status"] { min-height: 24px; font-weight: 600; }
+.board { display: flex; align-items: start; gap: 8px; overflow-x: auto; padding: 12px 0; }
+.group, .gap { height: 420px; flex-shrink: 0; border: 2px solid #c4ced8; border-radius: 8px; }
+.group { width: 220px; padding: 14px; background: white; }
+.gap { width: 80px; padding: 12px 4px; border-style: dashed; color: #385b76; text-align: center; }
+.gap[aria-disabled="true"] { color: #685f60; background: #ede9e9; border-color: #9e8e90; }
+.over { border-color: #006cad; background: #e4f3fc; }
+.card { display: block; width: 100%; height: 44px; margin: 0 0 8px; border: 1px solid #879db0;
+  border-radius: 6px; background: #edf3f7; color: #172b3a; font: inherit; text-align: left; padding: 8px 12px; }
+.card:focus-visible { outline: 3px solid #006cad; outline-offset: 2px; }
