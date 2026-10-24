@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tree row pinning</title>
+<style>
+body { font: 16px system-ui; max-width: 1100px; margin: 24px auto; padding: 0 16px; }
+#grid { height: 470px; }
+pre { white-space: pre-wrap; font-size: 12px; max-height: 190px; overflow: auto; }
+</style>
+<h1>Pin a tree parent and keep its children expandable</h1>
+<p>The top row uses a custom button to expand the original tree in the body. Child rows stay in the body. Expand Planning, then Design; sort Effort and select a task, then collapse and reopen Planning to keep working.</p>
+<p>Tree Data requires AG Grid Enterprise. This local example uses evaluation mode without a key; its watermark and licence notice are expected. Production use requires an appropriate AG Grid licence.</p>
+<div id="grid"></div>
+<details><summary>Current tree and events</summary><pre id="state">Loading</pre></details>
+<script type="module" src="/main.js"></script>
+</html>

@@ -1,0 +1,23 @@
+{
+  "name": "tree-row-pinning",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "npm run build && node serve.mjs",
+    "test": "npm run build && node tests/acceptance.mjs"
+  },
+  "dependencies": {
+    "ag-grid-community": "35.2.1",
+    "ag-grid-enterprise": "35.2.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "playwright": "1.64.1"
+  }
+}
