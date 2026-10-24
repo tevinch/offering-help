@@ -105,3 +105,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Read a typed value from nested JSON](examples/nested-json-value/): select an API response subtree while keeping the same type usable with standalone JSON.
 
 - [Use one projection for list and chunked queries](examples/temp-query-projection/): select fields present in a FreeSql temporary projection and compare complete list and batch results.
+
+- [Bind to the generated RelayCommand name](examples/relay-command-name/): use the property generated from an On-prefixed method and verify actual Avalonia compiled bindings and pointer input.

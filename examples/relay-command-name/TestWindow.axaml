@@ -1,0 +1,17 @@
+<Window
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:RelayCommandName"
+    x:Class="RelayCommandName.TestWindow"
+    x:DataType="vm:TestViewModel"
+    x:CompileBindings="True"
+    Width="320" Height="240">
+  <StackPanel Margin="12" Spacing="8">
+    <Button Name="MainButton" Width="250" Height="48"
+            Command="{Binding PointerPressedCommand}">Run OnPointerPressed</Button>
+    <TextBlock Name="MainCount" Text="{Binding ClickCount}" />
+    <Button Name="ControlButton" Width="250" Height="48"
+            Command="{Binding AsdfPointerPressedCommand}">Run AsdfPointerPressed</Button>
+    <TextBlock Name="ControlCount" Text="{Binding ControlCount}" />
+  </StackPanel>
+</Window>
