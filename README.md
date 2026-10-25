@@ -127,3 +127,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Extract a table continued across PDF pages](examples/continued-table/): add a missing boundary with native pdfplumber settings, preserve real merged cells and export a complete known six-column table.
 
 - [View TUnit coverage in Visual Studio Community](examples/tunit-coverage/): use Fine Code Coverage’s TUnit command and compare real covered and missed paths.
+
+- [Test Twig and Stimulus together](examples/twig-stimulus-tests/): share real Twig markup with DOM tests and finish a form workflow in the browser.

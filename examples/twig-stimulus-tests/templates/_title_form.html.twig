@@ -1,0 +1,7 @@
+<form action="/" method="post" data-controller="title-count">
+  <label for="reading-title">Reading title</label>
+  <input id="reading-title" name="title" value="{{ title }}"
+         data-title-count-target="title" data-action="input->title-count#update">
+  <output for="reading-title" data-title-count-target="count" aria-live="polite">Character count appears here.</output>
+  <button type="submit">Check title</button>
+</form>

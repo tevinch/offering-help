@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading title</title>
+  {{ importmap('app') }}
+</head>
+<body>
+  <main>
+    <h1>Check a reading title</h1>
+    {% include '_title_form.html.twig' with { title: title } only %}
+    <p id="result" role="status">{{ result }}</p>
+  </main>
+</body>
+</html>

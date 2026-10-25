@@ -1,0 +1,7 @@
+/vendor/
+/node_modules/
+/var/
+/test-results/
+/playwright-report/
+/.phpunit.cache/
+/config/reference.php
