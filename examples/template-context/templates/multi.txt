@@ -1,0 +1,1 @@
+α {{ ctx.a }} / {{ ctx.b }} / {{ ctx.a + ctx.b }} ω

@@ -129,3 +129,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [View TUnit coverage in Visual Studio Community](examples/tunit-coverage/): use Fine Code Coverage’s TUnit command and compare real covered and missed paths.
 
 - [Test Twig and Stimulus together](examples/twig-stimulus-tests/): share real Twig markup with DOM tests and finish a form workflow in the browser.
+
+- [Pass a local context through a template callback](examples/template-context/): render file expressions with a native JavaScript object passed through C# without changing globals.
