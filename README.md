@@ -121,3 +121,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Supply per-stack generation inputs](examples/stack-inputs/): create Terramate stack metadata first, fill in different local globals and generate all outputs from one shared template.
 
 - [Write your own column workings](examples/column-workings/): type arithmetic steps, add carry or borrowing notes and crossouts, and print the completed page without TeX.
+
+- [Evaluate SDF points after mesh generation](examples/sdf-point-values/): query arbitrary coordinates, generated vertices and triangle centroids with the documented batch input format.
