@@ -123,3 +123,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Write your own column workings](examples/column-workings/): type arithmetic steps, add carry or borrowing notes and crossouts, and print the completed page without TeX.
 
 - [Evaluate SDF points after mesh generation](examples/sdf-point-values/): query arbitrary coordinates, generated vertices and triangle centroids with the documented batch input format.
+
+- [Extract a table continued across PDF pages](examples/continued-table/): add a missing boundary with native pdfplumber settings, preserve real merged cells and export a complete known six-column table.
