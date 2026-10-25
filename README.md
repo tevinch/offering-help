@@ -125,3 +125,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Evaluate SDF points after mesh generation](examples/sdf-point-values/): query arbitrary coordinates, generated vertices and triangle centroids with the documented batch input format.
 
 - [Extract a table continued across PDF pages](examples/continued-table/): add a missing boundary with native pdfplumber settings, preserve real merged cells and export a complete known six-column table.
+
+- [View TUnit coverage in Visual Studio Community](examples/tunit-coverage/): use Fine Code Coverage’s TUnit command and compare real covered and missed paths.
