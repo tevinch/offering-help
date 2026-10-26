@@ -1,0 +1,22 @@
+= Documentation preview
+:toc: left
+:toclevels: 3
+
+Open this file in the AsciiDoc preview to try the body and table of contents colors.
+See https://docs.asciidoctor.org/[the documentation] and the `docs/` directory.
+
+== Release overview
+
+[cols="1,1",options="header"]
+|===
+|Stage |State
+|Archive |Ready
+|===
+
+NOTE: Keep your existing content while adjusting colors.
+
+=== Nested details
+
+Use the nested table of contents entry to reach this section.
+
+include::checklist.adoc[]

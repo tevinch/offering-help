@@ -1,0 +1,7 @@
+[#included-checklist]
+== Included checklist
+
+* Open the preview with your usual content.
+* Check the table of contents links and title.
+* Change a color in `docinfo.html`, save, and refresh the preview if needed.
+* Follow a table of contents entry to confirm navigation still works.

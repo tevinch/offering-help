@@ -1,0 +1,43 @@
+<style>
+:root {
+  --preview-body-bg: #1c2128;
+  --preview-toc-bg: #22272e;
+  --preview-text: #e6edf3;
+  --preview-toc-link: #79c0ff;
+  --preview-toc-link-active: #ffdf80;
+  --preview-toc-border: #444c56;
+}
+
+body {
+  background-color: var(--preview-body-bg);
+  color: var(--preview-text);
+}
+
+#toc {
+  /* The native dark preview also uses !important for these two properties. */
+  background-color: var(--preview-toc-bg) !important;
+  border-color: var(--preview-toc-border) !important;
+  color: var(--preview-text);
+}
+
+#toc a,
+#toc a:visited {
+  color: var(--preview-toc-link);
+}
+
+#toc a:hover,
+#toc a:focus {
+  color: var(--preview-toc-link-active);
+}
+
+#toc a:focus-visible {
+  outline: 2px solid var(--preview-toc-link-active);
+  outline-offset: 2px;
+}
+
+#toctitle {
+  color: var(--preview-text);
+  /* The native dark preview inverts this title; keep the chosen color exact. */
+  filter: none;
+}
+</style>

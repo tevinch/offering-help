@@ -1,0 +1,2 @@
+:docinfodir: {asciidoctorconfigdir}/.asciidoctor
+:docinfo: shared

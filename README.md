@@ -133,3 +133,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Pass a local context through a template callback](examples/template-context/): render file expressions with a native JavaScript object passed through C# without changing globals.
 
 - [Mark dates in Cally with theme colors](examples/calendar-day-markers/): add colored date dots while preserving native selection, keyboard controls and month navigation.
+
+- [Set AsciiDoc preview body and TOC colors](examples/asciidoc-preview-colors/): add a shared docinfo palette while keeping existing configuration, content and native styles.
