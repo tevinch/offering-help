@@ -135,3 +135,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Mark dates in Cally with theme colors](examples/calendar-day-markers/): add colored date dots while preserving native selection, keyboard controls and month navigation.
 
 - [Set AsciiDoc preview body and TOC colors](examples/asciidoc-preview-colors/): add a shared docinfo palette while keeping existing configuration, content and native styles.
+
+- [Read vocabulary links from netCDF variables](examples/netcdf-vocabulary/): retrieve concept definitions and direct mappings from annotated files while keeping source data unchanged.
