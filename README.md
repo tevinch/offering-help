@@ -131,3 +131,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Test Twig and Stimulus together](examples/twig-stimulus-tests/): share real Twig markup with DOM tests and finish a form workflow in the browser.
 
 - [Pass a local context through a template callback](examples/template-context/): render file expressions with a native JavaScript object passed through C# without changing globals.
+
+- [Mark dates in Cally with theme colors](examples/calendar-day-markers/): add colored date dots while preserving native selection, keyboard controls and month navigation.

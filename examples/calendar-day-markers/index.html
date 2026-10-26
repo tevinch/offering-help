@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Colored date markers using Cally's public CSS parts and daisyUI theme colors.">
+  <title>Calendar day markers</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.7.50/daisyui.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@5.7.50/themes.css">
+  <script type="module" src="https://cdn.jsdelivr.net/npm/cally@0.9.2/dist/cally.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--color-base-200); color: var(--color-base-content); font: 1rem/1.5 system-ui, sans-serif; }
+    main { max-width: 35rem; margin: 3rem auto; padding: 0 1rem; }
+    h1 { margin: 0; font-size: 1.8rem; line-height: 1.2; font-weight: 700; }
+    p { margin-block: 1rem; }
+    .intro { color: color-mix(in srgb, var(--color-base-content) 75%, transparent); }
+    .panel { padding: 1.25rem; background: var(--color-base-100); border: 1px solid var(--color-base-300); border-radius: var(--radius-box); }
+    .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+    .toolbar label { font-size: .9rem; }
+    .toolbar select { width: 7rem; }
+    calendar-date { display: block; max-width: 24rem; margin-inline: auto; }
+    calendar-month::part(day) { position: relative; height: 2.5rem; padding-bottom: .4rem; font-size: .85rem; }
+    .selection { border-top: 1px solid var(--color-base-300); padding-top: 1rem; margin-top: 1rem; }
+    output { font-weight: 600; font-variant-numeric: tabular-nums; }
+    .events { padding-left: 1.25rem; font-size: .9rem; }
+    .events li { margin-block: .5rem; }
+    .key { display: inline-block; width: .5rem; height: .5rem; border-radius: 50%; margin-right: .35rem; }
+    .key-primary { background: var(--color-primary); }
+    .key-warning { background: var(--color-warning); }
+    .hint { font-size: .85rem; }
+    @media (max-width: 400px) { main { margin-block: 1.5rem; } .panel { padding: .75rem; } }
+  </style>
+  <style id="day-markers">
+    /* Each returned token becomes a public part on the native day button. */
+    calendar-month::part(event-primary) { --day-marker-color: var(--color-primary); }
+    calendar-month::part(event-warning) { --day-marker-color: var(--color-warning); }
+    calendar-month::part(has-event)::after {
+      content: "";
+      position: absolute;
+      width: .4375rem;
+      height: .4375rem;
+      border-radius: 50%;
+      inset-inline-start: 50%;
+      bottom: .2rem;
+      transform: translateX(-50%);
+      background: var(--day-marker-color);
+      pointer-events: none;
+    }
+    /* daisyUI fills native today with primary, even when it is unselected. */
+    calendar-month::part(has-event today)::after {
+      background: var(--color-primary-content);
+    }
+    /* Keep this last: daisyUI uses base-content as the selected day fill. */
+    calendar-month::part(has-event selected)::after {
+      background: var(--color-base-100);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Calendar day markers</h1>
+    <p class="intro">Add colored dots to chosen dates while keeping Cally's date selection and keyboard controls.</p>
+    <section class="panel" aria-label="Calendar example">
+      <div class="toolbar">
+        <strong>October events</strong>
+        <label for="theme">Theme
+          <select id="theme" class="select select-sm">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+        </label>
+      </div>
+      <calendar-date class="cally" value="2026-10-01" today="2026-10-26" locale="en-US">
+        <calendar-month></calendar-month>
+      </calendar-date>
+      <p class="selection">Selected date: <output id="selected-date" aria-live="polite">2026-10-01</output></p>
+      <ul class="events" aria-label="Event dates">
+        <li><span class="key key-primary" aria-hidden="true"></span><time datetime="2026-10-07">October 7, 2026</time> — Project review (primary)</li>
+        <li><span class="key key-warning" aria-hidden="true"></span><time datetime="2026-10-21">October 21, 2026</time> — Renewal reminder (warning)</li>
+      </ul>
+      <p class="hint">Select any date, or use the arrow keys and Enter. Today and selected dates use contrasting dots; event details stay in the list.</p>
+    </section>
+  </main>
+  <script type="module">
+    await customElements.whenDefined("calendar-date");
+    const calendar = document.querySelector("calendar-date");
+    const dates = new Map([
+      ["2026-10-07", "event-primary"],
+      ["2026-10-21", "event-warning"],
+    ]);
+    calendar.getDayParts = (date) => {
+      // Cally supplies UTC dates. Local getters can shift the date in some zones.
+      const colorPart = dates.get(date.toISOString().slice(0, 10));
+      return colorPart ? `has-event ${colorPart}` : "";
+    };
+    calendar.addEventListener("change", () => {
+      document.querySelector("#selected-date").textContent = calendar.value;
+    });
+    document.querySelector("#theme").addEventListener("change", (event) => {
+      document.documentElement.dataset.theme = event.target.value;
+    });
+  </script>
+</body>
+</html>
