@@ -143,3 +143,5 @@ Each example or guide explains how to use it and what was checked. Original code
 [Use month labels in Excel table headers](examples/month-table-headers): format native field names explicitly while retaining data, filters and average totals through a separate save.
 
 [Save a workbook as values only](examples/values-only-workbook): recalculate supported scalar formulas, preserve typed results and save a separate copy with no cell formulas.
+
+[Reduce weighted graph edges without the full product buffer](examples/weighted-segment-sum): keep multiplication inside a compiled native reduction, with gradient, training and CPU allocation checks.
