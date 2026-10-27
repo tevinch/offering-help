@@ -1,13 +1,15 @@
 # Month labels in an Excel table
 
-Use formatted strings as table field names to display `Jan 2023`, `Feb 2023` and `Mar 2023`. Excel table headers are names: ClosedXML converts values assigned there to strings. Applying a date number format afterward does not format those strings.
+This is a display workaround for ClosedXML 0.105.1: assign preformatted strings to table field names to show `Jan 2023`, `Feb 2023` and `Mar 2023`. It does not preserve date-valued table headers or provide editable Excel date formatting.
+
+In this version, assigning a `DateTime` to an existing table header immediately converts the value to text using the current culture. Setting `NumberFormat.Format = "MMM yyyy"` on that already-converted text does not reformat it. Ordinary cells that retain `DateTime` values do support date number formats. Excel's own table conversion and date re-entry behavior were not tested here.
 
 ```csharp
 var date = new DateOnly(2023, 1, 1);
 table.Field(1).Name = date.ToString("MMM yyyy", CultureInfo.GetCultureInfo("en-US"));
 ```
 
-Choose the culture explicitly so the generated labels do not depend on the machine's locale. If you need real dates for calculations or editable date formatting, keep those dates in ordinary cells outside the table and use the formatted strings for its field names.
+Choose the culture explicitly so the generated labels do not depend on the machine's locale. If the workflow requires actual dates or editable date number formats, this example does not meet that requirement; keep those dates in ordinary cells outside the table if that layout is acceptable.
 
 ## Run the complete example
 
