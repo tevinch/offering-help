@@ -139,3 +139,5 @@ Each example or guide explains how to use it and what was checked. Original code
 - [Read vocabulary links from netCDF variables](examples/netcdf-vocabulary/): retrieve concept definitions and direct mappings from annotated files while keeping source data unchanged.
 
 [Give one Svelte Select a wider dropdown](examples/select-list-width): scope list styles to a single control while preserving filtering, selection and other controls.
+
+[Use month labels in Excel table headers](examples/month-table-headers): format native field names explicitly while retaining data, filters and average totals through a separate save.
