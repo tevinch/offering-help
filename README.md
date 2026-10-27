@@ -141,3 +141,5 @@ Each example or guide explains how to use it and what was checked. Original code
 [Give one Svelte Select a wider dropdown](examples/select-list-width): scope list styles to a single control while preserving filtering, selection and other controls.
 
 [Use month labels in Excel table headers](examples/month-table-headers): format native field names explicitly while retaining data, filters and average totals through a separate save.
+
+[Save a workbook as values only](examples/values-only-workbook): recalculate supported scalar formulas, preserve typed results and save a separate copy with no cell formulas.
